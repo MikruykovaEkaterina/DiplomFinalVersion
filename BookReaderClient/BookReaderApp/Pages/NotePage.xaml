@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:BookReaderApp.ViewModels"
+             xmlns:loc="clr-namespace:BookReaderApp.Localization"
+             x:Class="BookReaderApp.NotesPage"
+             x:Name="ThisPage"
+             BackgroundColor="{DynamicResource PrimaryBackground}">
+
+  <Grid RowDefinitions="Auto,*"
+        BackgroundColor="{DynamicResource PrimaryBackground}">
+
+    <Grid Grid.Row="0"
+          Padding="20,10,15,8"
+          BackgroundColor="{DynamicResource PrimaryBackground}"
+          ColumnDefinitions="Auto,*,Auto"
+          ColumnSpacing="8">
+
+      <ImageButton Grid.Column="0"
+                   Style="{StaticResource ChromeImageButtonStyle}"
+                   Source="{DynamicResource UiIconArrowBack}"
+                   WidthRequest="{DynamicResource UiChromeIconSize}"
+                   HeightRequest="{DynamicResource UiChromeIconSize}"
+                   Aspect="AspectFit"
+                   Clicked="OnBackClicked" />
+
+      <Label Grid.Column="1"
+             x:Name="ScreenTitleLabel"
+             HorizontalOptions="Center"
+             VerticalOptions="Center"
+             Style="{DynamicResource AppTitleStyle}" />
+
+      <ImageButton Grid.Column="2"
+                   Style="{StaticResource ChromeImageButtonStyle}"
+                   Source="{DynamicResource UiIconPlus}"
+                   WidthRequest="{DynamicResource UiChromeIconSize}"
+                   HeightRequest="{DynamicResource UiChromeIconSize}"
+                   Aspect="AspectFit"
+                   ToolTipProperties.Text="{loc:Translate Notes_AddNote}"
+                   SemanticProperties.Description="{loc:Translate Notes_AddNote}"
+                   Clicked="OnAddNoteClicked" />
+    </Grid>
+
+    <Grid Grid.Row="1">
+      <CollectionView x:Name="NotesCollection"
+                      ItemsSource="{Binding Items}"
+                      SelectionMode="None"
+                      VerticalScrollBarVisibility="Default">
+        <CollectionView.EmptyView>
+          <Label x:Name="EmptyNotesLabel"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Center"
+                 Margin="24"
+                 HorizontalTextAlignment="Center"
+                 FontSize="{DynamicResource MainFontSize}"
+                 TextColor="{DynamicResource HintTextColor}" />
+        </CollectionView.EmptyView>
+        <CollectionView.ItemTemplate>
+          <DataTemplate x:DataType="vm:NoteListItemViewModel">
+            <Border Stroke="{DynamicResource CardBorderColor}"
+                    StrokeThickness="1"
+                    Background="{DynamicResource BookCardBackground}"
+                    StrokeShape="RoundRectangle 8"
+                    Padding="{DynamicResource CardPadding}"
+                    Margin="{DynamicResource CardOuterMargin}"
+                    Shadow="{DynamicResource CardShadow}">
+              <Border.GestureRecognizers>
+                <TapGestureRecognizer
+                    Command="{Binding Source={x:Reference ThisPage}, Path=BindingContext.OpenRowCommand}"
+                    CommandParameter="{Binding .}" />
+              </Border.GestureRecognizers>
+              <Grid RowDefinitions="Auto,Auto"
+                    ColumnSpacing="{DynamicResource CardColumnSpacing}"
+                    RowSpacing="{DynamicResource CardRowSpacing}">
+
+                <Grid Grid.Row="0"
+                      ColumnDefinitions="*,Auto,Auto"
+                      ColumnSpacing="6">
+
+                  <Label Grid.Column="0"
+                         Text="{Binding TitleDisplay}"
+                         FontSize="{DynamicResource NoteTitleFontSize}"
+                         TextColor="{DynamicResource MainTextColor}"
+                         LineBreakMode="WordWrap"
+                         VerticalOptions="Center" />
+
+                  <ImageButton Grid.Column="1"
+                               Style="{StaticResource InlineChromeImageButtonStyle}"
+                               Source="{DynamicResource UiIconArrowDown}"
+                               WidthRequest="{DynamicResource UiInlineIconSize}"
+                               HeightRequest="{DynamicResource UiInlineIconSize}"
+                               HorizontalOptions="End"
+                               VerticalOptions="Center"
+                               IsVisible="{Binding HasComment}"
+                               Rotation="{Binding ExpandChevronRotation}"
+                               Command="{Binding ToggleExpandCommand}" />
+
+                  <ImageButton Grid.Column="2"
+                               Style="{StaticResource DismissChromeImageButtonStyle}"
+                               Source="{DynamicResource UiIconClose}"
+                               WidthRequest="{DynamicResource UiDismissIconSize}"
+                               HeightRequest="{DynamicResource UiDismissIconSize}"
+                               Padding="0"
+                               HorizontalOptions="End"
+                               VerticalOptions="Center"
+                               Command="{Binding Source={x:Reference ThisPage}, Path=BindingContext.DeleteNoteCommand}"
+                               CommandParameter="{Binding .}" />
+                </Grid>
+
+                <Label Grid.Row="1"
+                       Text="{Binding CommentText}"
+                       FontSize="{DynamicResource NoteTextFontSize}"
+                       TextColor="{DynamicResource MainTextColor}"
+                       LineBreakMode="WordWrap"
+                       Margin="0,6,0,0"
+                       IsVisible="{Binding IsExpandedCommentVisible}" />
+              </Grid>
+            </Border>
+          </DataTemplate>
+        </CollectionView.ItemTemplate>
+      </CollectionView>
+    </Grid>
+  </Grid>
+</ContentPage>

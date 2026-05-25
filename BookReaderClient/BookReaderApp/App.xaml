@@ -1,0 +1,18 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:shared="clr-namespace:BookReaderApp.Resources.Themes.Shared"
+             xmlns:light="clr-namespace:BookReaderApp.Resources.Themes.Light"
+             x:Class="BookReaderApp.App">
+  <!-- Baseline UI: MAUI Styles + приложение (размеры, стили карточек). Палитра Light — стартовая; код подменит на Dark при настройке/авто-теме. -->
+  <Application.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+        <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+        <shared:SharedUiResources />
+        <light:LightPalette />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Application.Resources>
+</Application>

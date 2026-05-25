@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BookReaderApp"
+             xmlns:loc="clr-namespace:BookReaderApp.Localization"
+             x:Class="BookReaderApp.ReadingPage"
+             Title="{loc:Translate Reading_Title}">
+
+  <!-- Текст на весь экран; верх/низ — оверлеи (при скрытии не остаётся пустой полосы) -->
+  <Grid x:Name="RootGrid"
+          RowDefinitions="*"
+          ColumnDefinitions="*"
+          BackgroundColor="{DynamicResource BookPageBackground}">
+
+    <!-- Область чтения на весь экран (под панелями) -->
+    <Grid Grid.Row="0" x:Name="ReadingLayer" ZIndex="0">
+      <ScrollView x:Name="BookScrollView"
+                      ZIndex="0"
+                      HorizontalOptions="Fill"
+                      VerticalOptions="Fill"
+                      Scrolled="OnBookScrollViewScrolled"
+                      BackgroundColor="{DynamicResource BookPageBackground}">
+        <ScrollView.GestureRecognizers>
+          <TapGestureRecognizer Tapped="OnDoubleTapped" NumberOfTapsRequired="2" />
+        </ScrollView.GestureRecognizers>
+        <VerticalStackLayout x:Name="SentencesLayout"
+                             HorizontalOptions="Fill"
+                             VerticalOptions="Start"
+                             Spacing="0" />
+      </ScrollView>
+      <WebView x:Name="BookWebView"
+                   ZIndex="1"
+                   IsVisible="False"
+                   Navigating="OnBookWebNavigating"
+                   Navigated="OnBookWebNavigated"
+                   HorizontalOptions="Fill"
+                   VerticalOptions="Fill"
+                   BackgroundColor="Transparent" />
+      <!-- Горизонтальное листание: тап и свайп по боковым зонам (центр — прокрутка страницы) -->
+      <Grid x:Name="HorizontalPageTurnLayer"
+            ZIndex="3"
+            IsVisible="False"
+            InputTransparent="False"
+            ColumnDefinitions="0.22*,0.56*,0.22*">
+        <Grid Grid.Column="0" BackgroundColor="Transparent">
+          <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnTurnPrevPageTapped" />
+            <SwipeGestureRecognizer Direction="Left" Swiped="OnSwipeLeftForPage" />
+            <SwipeGestureRecognizer Direction="Right" Swiped="OnSwipeRightForPage" />
+          </Grid.GestureRecognizers>
+        </Grid>
+        <Grid Grid.Column="1" InputTransparent="True" />
+        <Grid Grid.Column="2" BackgroundColor="Transparent">
+          <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnTurnNextPageTapped" />
+            <SwipeGestureRecognizer Direction="Left" Swiped="OnSwipeLeftForPage" />
+            <SwipeGestureRecognizer Direction="Right" Swiped="OnSwipeRightForPage" />
+          </Grid.GestureRecognizers>
+        </Grid>
+      </Grid>
+    </Grid>
+
+    <!-- Верх: навигация + заголовок (не занимает отдельную строку сетки) -->
+    <Grid x:Name="TopChromeRoot"
+          Grid.Row="0"
+          VerticalOptions="Start"
+          ZIndex="110"
+          RowDefinitions="Auto,Auto"
+          InputTransparent="False">
+      <Grid x:Name="TopPanel"
+                Grid.Row="0"
+                Padding="12,8,12,8"
+                BackgroundColor="{DynamicResource PrimaryBackground}"
+                ColumnDefinitions="*,*,*,*,*,*">
+        <ImageButton Grid.Column="0"
+                           Style="{StaticResource ChromeImageButtonStyle}"
+                           Source="{DynamicResource UiIconArrowBack}"
+                           WidthRequest="{DynamicResource UiChromeIconSize}"
+                           HeightRequest="{DynamicResource UiChromeIconSize}"
+                           Aspect="AspectFit"
+                           ToolTipProperties.Text="{loc:Translate Reading_Chrome_Back}"
+                           Clicked="OnBackClicked" />
+        <ImageButton Grid.Column="1"
+                           Style="{StaticResource ChromeImageButtonStyle}"
+                           Source="{DynamicResource UiIconMenuBook}"
+                           WidthRequest="{DynamicResource UiChromeIconSize}"
+                           HeightRequest="{DynamicResource UiChromeIconSize}"
+                           Aspect="AspectFit"
+                           ToolTipProperties.Text="{loc:Translate Reading_Chrome_Toc}"
+                           Clicked="OnTableOfContentsClicked" />
+        <ImageButton Grid.Column="2"
+                           Style="{StaticResource ChromeImageButtonStyle}"
+                           Source="{DynamicResource UiIconNote}"
+                           WidthRequest="{DynamicResource UiChromeIconSize}"
+                           HeightRequest="{DynamicResource UiChromeIconSize}"
+                           Aspect="AspectFit"
+                           ToolTipProperties.Text="{loc:Translate Reading_Chrome_Notes}"
+                           Clicked="OnNotesClicked" />
+        <ImageButton Grid.Column="3"
+                           Style="{StaticResource ChromeImageButtonStyle}"
+                           Source="{DynamicResource UiIconHome}"
+                           WidthRequest="{DynamicResource UiChromeIconSize}"
+                           HeightRequest="{DynamicResource UiChromeIconSize}"
+                           Aspect="AspectFit"
+                           ToolTipProperties.Text="{loc:Translate Reading_Chrome_Home}"
+                           Clicked="OnHomeClicked" />
+        <ImageButton Grid.Column="4"
+                           Style="{StaticResource ChromeImageButtonStyle}"
+                           Source="{DynamicResource UiIconTextSettings}"
+                           WidthRequest="{DynamicResource UiChromeIconSize}"
+                           HeightRequest="{DynamicResource UiChromeIconSize}"
+                           Aspect="AspectFit"
+                           ToolTipProperties.Text="{loc:Translate Reading_Chrome_TextSettings}"
+                           Clicked="OnTextSettingsClicked" />
+        <ImageButton Grid.Column="5"
+                           Style="{StaticResource ChromeImageButtonStyle}"
+                           Source="{DynamicResource UiIconSettings}"
+                           WidthRequest="{DynamicResource UiChromeIconSize}"
+                           HeightRequest="{DynamicResource UiChromeIconSize}"
+                           Aspect="AspectFit"
+                           ToolTipProperties.Text="{loc:Translate Reading_Chrome_AppSettings}"
+                           Clicked="OnSettingsClicked" />
+      </Grid>
+      <Grid x:Name="HeaderPanel"
+                Grid.Row="1"
+                Padding="16,4,16,10"
+                BackgroundColor="{DynamicResource PrimaryBackground}"
+                ColumnDefinitions="*,Auto">
+        <Label Grid.Column="0"
+                     x:Name="ChapterLabel"
+                     Text=""
+                     FontSize="{DynamicResource MainFontSize}"
+                     TextColor="{DynamicResource MainTextColor}"
+                     HorizontalOptions="Start"
+                     VerticalOptions="Center"
+                     Margin="0,0,20,0" />
+        <Label Grid.Column="1"
+                     x:Name="BookTitleLabel"
+                     Text=""
+                     FontSize="{DynamicResource MainFontSize}"
+                     TextColor="{DynamicResource MainTextColor}"
+                     HorizontalOptions="End"
+                     VerticalOptions="Center" />
+      </Grid>
+    </Grid>
+
+    <Grid x:Name="BottomPanel"
+              Grid.Row="0"
+              VerticalOptions="End"
+              ZIndex="110"
+              Padding="12,8,12,12"
+              BackgroundColor="{DynamicResource PrimaryBackground}"
+              ColumnDefinitions="Auto,*,Auto"
+              InputTransparent="False">
+      <ImageButton x:Name="PrevPageButton"
+                         Grid.Column="0"
+                         Style="{StaticResource ChromeImageButtonStyle}"
+                         Source="{DynamicResource UiIconArrowLeft}"
+                         WidthRequest="{DynamicResource UiChromeIconSize}"
+                         HeightRequest="{DynamicResource UiChromeIconSize}"
+                         Aspect="AspectFit"
+                         Clicked="OnPrevPageClicked" />
+      <Label Grid.Column="1"
+                   x:Name="PageInfoLabel"
+                   Text=""
+                   TextColor="{DynamicResource MainTextColor}"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   FontSize="{DynamicResource MainFontSize}">
+        <Label.GestureRecognizers>
+          <TapGestureRecognizer Tapped="OnPageInfoLabelTapped" />
+        </Label.GestureRecognizers>
+      </Label>
+      <ImageButton x:Name="NextPageButton"
+                         Grid.Column="2"
+                         Style="{StaticResource ChromeImageButtonStyle}"
+                         Source="{DynamicResource UiIconArrowRight}"
+                         WidthRequest="{DynamicResource UiChromeIconSize}"
+                         HeightRequest="{DynamicResource UiChromeIconSize}"
+                         Aspect="AspectFit"
+                         Clicked="OnNextPageClicked" />
+    </Grid>
+
+    <!-- Оглавление: затемнение на весь экран; верх/низ приложения поверх (ZIndex 110) -->
+    <Grid x:Name="TocOverlay"
+              Grid.Row="0"
+              ZIndex="95"
+              IsVisible="False"
+              InputTransparent="False"
+              VerticalOptions="Fill"
+              HorizontalOptions="Fill">
+      <Grid ColumnDefinitions="0.5*,0.5*">
+        <Border x:Name="TocPanel"
+                    Grid.Column="0"
+                    BackgroundColor="{DynamicResource PrimaryBackground}"
+                    StrokeThickness="0"
+                    Padding="0"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill">
+          <Grid RowDefinitions="Auto,*" Padding="0">
+            <Label Grid.Row="0"
+                         Text="{loc:Translate Reading_TocTitle}"
+                         FontSize="{DynamicResource AppTitleFontSize}"
+                         TextColor="{DynamicResource MainTextColor}"
+                         Padding="16,14,16,8" />
+            <CollectionView x:Name="TocList"
+                                  Grid.Row="1"
+                                  SelectionMode="Single"
+                                  ItemSizingStrategy="MeasureAllItems"
+                                  VerticalScrollBarVisibility="Default">
+              <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="local:TocChapterItem">
+                  <Border StrokeThickness="0"
+                              Padding="14,12"
+                              BackgroundColor="{Binding RowBackground}">
+                    <Label Text="{Binding Title}"
+                                 LineBreakMode="WordWrap"
+                                 FontSize="{DynamicResource MainFontSize}"
+                                 LineHeight="1.35"
+                                 TextColor="{DynamicResource MainTextColor}" />
+                  </Border>
+                </DataTemplate>
+              </CollectionView.ItemTemplate>
+            </CollectionView>
+          </Grid>
+        </Border>
+        <Grid x:Name="TocDimBackdrop"
+                    Grid.Column="1"
+                    Opacity="1"
+                    BackgroundColor="{DynamicResource ModalScrimColor}"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill">
+          <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnTocBackdropTapped" />
+          </Grid.GestureRecognizers>
+        </Grid>
+      </Grid>
+    </Grid>
+
+    <!-- Загрузка книги: до появления заголовка главы и номера страницы -->
+    <Grid x:Name="ReadingLoadingOverlay"
+              Grid.Row="0"
+              ZIndex="130"
+              IsVisible="False"
+              InputTransparent="False"
+              VerticalOptions="Fill"
+              HorizontalOptions="Fill"
+              BackgroundColor="{DynamicResource BookPageBackground}">
+      <VerticalStackLayout HorizontalOptions="Center"
+                                 VerticalOptions="Center"
+                                 Spacing="16">
+        <ActivityIndicator x:Name="ReadingLoadIndicator"
+                                 IsRunning="True"
+                                 Color="{DynamicResource Primary}"
+                                 WidthRequest="36"
+                                 HeightRequest="36"
+                                 HorizontalOptions="Center" />
+        <Label x:Name="ReadingLoadingMessageLabel"
+                     Text="{loc:Translate Reading_OpeningBook}"
+                     FontSize="{DynamicResource MainFontSize}"
+                     TextColor="{DynamicResource MainTextColor}"
+                     HorizontalOptions="Center"
+                     HorizontalTextAlignment="Center" />
+      </VerticalStackLayout>
+    </Grid>
+
+    <Grid x:Name="NoteEditorOverlay"
+              Grid.Row="0"
+              ZIndex="125"
+              IsVisible="False"
+              InputTransparent="False"
+              VerticalOptions="Fill"
+              HorizontalOptions="Fill">
+      <BoxView Color="{DynamicResource ModalScrimColor}" />
+      <Border Margin="24"
+                  Padding="0"
+                  StrokeThickness="1"
+                  Stroke="{DynamicResource CardBorderColor}"
+                  StrokeShape="RoundRectangle 12"
+                  BackgroundColor="{DynamicResource PrimaryBackground}"
+                  VerticalOptions="Center"
+                  HorizontalOptions="Fill"
+                  MaximumWidthRequest="440">
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto"
+                    Padding="16"
+                    RowSpacing="10">
+          <Grid Grid.Row="0"
+                      ColumnDefinitions="*,Auto">
+            <Label Grid.Column="0"
+                         Text="{loc:Translate Notes_EditorTitle}"
+                         FontSize="{DynamicResource AppTitleFontSize}"
+                         TextColor="{DynamicResource MainTextColor}"
+                         VerticalOptions="Center" />
+            <ImageButton Grid.Column="1"
+                        Style="{StaticResource DismissChromeImageButtonStyle}"
+                        Source="{DynamicResource UiIconClose}"
+                        WidthRequest="{DynamicResource UiDismissIconSize}"
+                        HeightRequest="{DynamicResource UiDismissIconSize}"
+                        Aspect="AspectFit"
+                        Clicked="OnNoteEditorCloseClicked" />
+          </Grid>
+          <HorizontalStackLayout Grid.Row="1" Spacing="2">
+            <Label Text="{loc:Translate Notes_TitleField}"
+                   FontSize="{DynamicResource MainFontSize}"
+                   TextColor="{DynamicResource MainTextColor}"
+                   VerticalOptions="Center" />
+            <Label Text="*"
+                   FontSize="{DynamicResource MainFontSize}"
+                   TextColor="#D32F2F"
+                   VerticalOptions="Center" />
+          </HorizontalStackLayout>
+          <Entry x:Name="NoteTitleEntry"
+                     Grid.Row="2"
+                     MaxLength="200"
+                     Placeholder="{loc:Translate Notes_TitlePlaceholder}"
+                     TextColor="{DynamicResource MainTextColor}"
+                     PlaceholderColor="{DynamicResource HintTextColor}"
+                     FontSize="{DynamicResource MainFontSize}" />
+          <Editor x:Name="NoteCommentEditor"
+                      Grid.Row="3"
+                      MaxLength="8000"
+                      AutoSize="TextChanges"
+                      MinimumHeightRequest="120"
+                      Placeholder="{loc:Translate Notes_CommentPlaceholder}"
+                      TextColor="{DynamicResource MainTextColor}"
+                      PlaceholderColor="{DynamicResource HintTextColor}"
+                      FontSize="{DynamicResource MainFontSize}" />
+          <Button Grid.Row="4"
+                      Text="{loc:Translate Notes_Save}"
+                      HorizontalOptions="End"
+                      BackgroundColor="{DynamicResource ActiveButtonBackgroundColor}"
+                      TextColor="{DynamicResource ActiveButtonTextColor}"
+                      FontSize="{DynamicResource ButtonFontSize}"
+                      Padding="14,8"
+                      CornerRadius="8"
+                      Clicked="OnNoteEditorSaveClicked" />
+        </Grid>
+      </Border>
+    </Grid>
+
+    <Grid x:Name="TranslationOverlay"
+              Grid.Row="0"
+              ZIndex="120"
+              IsVisible="False"
+              InputTransparent="False"
+              VerticalOptions="Fill"
+              HorizontalOptions="Fill">
+      <Grid.GestureRecognizers>
+        <TapGestureRecognizer Tapped="OnTranslationBackdropTapped" />
+      </Grid.GestureRecognizers>
+      <BoxView Color="{DynamicResource ModalScrimColor}" />
+      <Border x:Name="TranslationBubble"
+                  Margin="24"
+                  Padding="16"
+                  StrokeThickness="1"
+                  Stroke="{DynamicResource CardBorderColor}"
+                  StrokeShape="RoundRectangle 12"
+                  BackgroundColor="{DynamicResource PrimaryBackground}"
+                  VerticalOptions="Center"
+                  HorizontalOptions="Fill"
+                  MaximumWidthRequest="480">
+        <Border.GestureRecognizers>
+          <TapGestureRecognizer Tapped="OnTranslationBubbleTapped" />
+        </Border.GestureRecognizers>
+        <VerticalStackLayout Spacing="12">
+          <ActivityIndicator x:Name="TranslationBusyIndicator"
+                             IsRunning="False"
+                             IsVisible="False"
+                             Color="{DynamicResource Primary}" />
+          <Label x:Name="TranslationTextLabel"
+                     Text=""
+                     FontSize="{DynamicResource MainFontSize}"
+                     LineHeight="1.5"
+                     TextColor="{DynamicResource MainTextColor}" />
+        </VerticalStackLayout>
+      </Border>
+    </Grid>
+  </Grid>
+</ContentPage>

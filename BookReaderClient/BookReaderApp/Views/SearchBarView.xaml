@@ -1,0 +1,318 @@
+<ContentView
+    x:Class="BookReaderApp.Views.SearchBarView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:conv="clr-namespace:BookReaderApp.Converters"
+    xmlns:loc="clr-namespace:BookReaderApp.Localization"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+
+  <ContentView.Resources>
+    <conv:PickerEnumDisplayMultiConverter x:Key="PickerEnumDisplayMultiConverter" />
+  </ContentView.Resources>
+
+  <VerticalStackLayout Spacing="4"
+                       BackgroundColor="{DynamicResource PrimaryBackground}">
+    <Grid ColumnDefinitions="*,Auto" Margin="15,0"
+        Padding="0">
+      <Label Grid.Column="0" Text="" />
+      <Label Grid.Column="1"
+             Text="{loc:Translate Search_Reset}"
+             TextColor="{DynamicResource HintTextColor}"
+             FontSize="{DynamicResource ButtonFontSize}"
+             TextDecorations="Underline"
+             VerticalOptions="Center"
+             HorizontalOptions="End">
+        <Label.GestureRecognizers>
+          <TapGestureRecognizer Tapped="OnResetClicked" />
+        </Label.GestureRecognizers>
+      </Label>
+    </Grid>
+
+    <Border Stroke="{DynamicResource ActiveButtonBackgroundColor}"
+            Background="{DynamicResource ActiveButtonBorderColor}"
+            StrokeShape="RoundRectangle 8"
+            Margin="15,0"
+            Padding="0">
+      <Grid Padding="12,8" ColumnDefinitions="Auto,*">
+        <HorizontalStackLayout Grid.Column="0"
+                               Spacing="8"
+                               VerticalOptions="Center">
+          <Image Source="{DynamicResource UiIconSearchLight}"
+                 WidthRequest="{DynamicResource UiInlineIconSize}"
+                 HeightRequest="{DynamicResource UiInlineIconSize}"
+                 VerticalOptions="Center" />
+          <Label x:Name="SearchButtonText"
+                 Text=""
+                 TextColor="{DynamicResource ActiveButtonTextColor}"
+                 FontSize="{DynamicResource ButtonFontSize}"
+                 VerticalOptions="Center" />
+        </HorizontalStackLayout>
+
+        <Image Grid.Column="1"
+               x:Name="SearchButtonArrow"
+               Source="{DynamicResource UiIconArrowDownLight}"
+               WidthRequest="{DynamicResource UiInlineIconSize}"
+               HeightRequest="{DynamicResource UiInlineIconSize}"
+               HorizontalOptions="End"
+               VerticalOptions="Center" />
+
+        <Grid.GestureRecognizers>
+          <TapGestureRecognizer Tapped="OnFilterButtonClicked" />
+        </Grid.GestureRecognizers>
+      </Grid>
+    </Border>
+
+    <toolkit:Expander x:Name="SearchExpander" IsExpanded="False">
+      <VerticalStackLayout Padding="0" Spacing="8"
+                           BackgroundColor="{DynamicResource PrimaryBackground}">
+      <VerticalStackLayout Margin="20,0,15,0" Padding="0" Spacing="0">
+
+        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="6">
+          <Label Grid.Column="0"
+                 Text="{loc:Translate Search_Filter_Title}"
+                 TextColor="{DynamicResource MainTextColor}"
+                 VerticalOptions="Center"
+                 FontSize="{DynamicResource LabelFontSize}" />
+          <Entry x:Name="TitleEntry"
+                 Grid.Column="1"
+                 Placeholder="{loc:Translate Search_Placeholder_Title}"
+                 TextColor="{DynamicResource MainTextColor}"
+                 PlaceholderColor="{DynamicResource HintTextColor}"
+                 BackgroundColor="{DynamicResource PrimaryBackground}"
+                 FontSize="{DynamicResource MainFontSize}"
+                 MaxLength="300"
+                 Text="{Binding BookTitle}" />
+        </Grid>
+
+        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="6">
+          <Label Grid.Column="0"
+                 Text="{loc:Translate Search_Filter_Author}"
+                 TextColor="{DynamicResource MainTextColor}"
+                 VerticalOptions="Center"
+                 FontSize="{DynamicResource LabelFontSize}" />
+          <Entry x:Name="AuthorEntry"
+                 Grid.Column="1"
+                 Placeholder="{loc:Translate Search_Placeholder_Author}"
+                 TextColor="{DynamicResource MainTextColor}"
+                 PlaceholderColor="{DynamicResource HintTextColor}"
+                 BackgroundColor="{DynamicResource PrimaryBackground}"
+                 FontSize="{DynamicResource MainFontSize}"
+                 MaxLength="300"
+                 Text="{Binding BookAuthor}" />
+        </Grid>
+
+        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="6">
+          <Label Grid.Column="0"
+                 Text="{loc:Translate LanguageLabel}"
+                 TextColor="{DynamicResource MainTextColor}"
+                 VerticalOptions="Center"
+                 FontSize="{DynamicResource LabelFontSize}" />
+          <Border Grid.Column="1"
+                  Stroke="{DynamicResource CardBorderColor}"
+                  StrokeThickness="1"
+                  StrokeShape="RoundRectangle 6"
+                  Padding="12,10"
+                  BackgroundColor="{DynamicResource PrimaryBackground}">
+            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+              <Label Grid.Column="0"
+                     VerticalOptions="Center"
+                     LineBreakMode="WordWrap"
+                     FontSize="{DynamicResource MainFontSize}"
+                     TextColor="{DynamicResource MainTextColor}">
+                <Label.Text>
+                  <MultiBinding Converter="{StaticResource PickerEnumDisplayMultiConverter}"
+                                ConverterParameter="Language">
+                    <Binding Path="SelectedLanguage" />
+                    <Binding Path="CurrentCulture"
+                             Source="{x:Static loc:LocalizationResourceManager.Instance}" />
+                  </MultiBinding>
+                </Label.Text>
+              </Label>
+              <Image Grid.Column="1"
+                     Source="{DynamicResource UiIconArrowDownLight}"
+                     WidthRequest="{DynamicResource UiChromeIconSize}"
+                     HeightRequest="{DynamicResource UiChromeIconSize}"
+                     VerticalOptions="Center" />
+            </Grid>
+            <Border.GestureRecognizers>
+              <TapGestureRecognizer Tapped="OnSearchLanguageTapped" />
+            </Border.GestureRecognizers>
+          </Border>
+        </Grid>
+
+          <VerticalStackLayout Spacing="2">
+            <Label Text="{loc:Translate Search_Filter_BookSize}"
+         Margin="0,10,0,0"
+         TextColor="{DynamicResource MainTextColor}"
+         FontSize="{DynamicResource LabelFontSize}" />
+            <Grid ColumnDefinitions="*,Auto,*"
+        ColumnSpacing="6"
+        Margin="0,0,0,0">
+              <Entry x:Name="PageFromEntry"
+           Grid.Column="0"
+           Placeholder="{loc:Translate Search_Placeholder_PageFrom}"
+           Keyboard="Numeric"
+           TextColor="{DynamicResource MainTextColor}"
+           PlaceholderColor="{DynamicResource HintTextColor}"
+           BackgroundColor="{DynamicResource PrimaryBackground}"
+           FontSize="{DynamicResource MainFontSize}"
+           Text="{Binding BookPageFrom}" />
+              <Label Grid.Column="1"
+           Text="—"
+           TextColor="{DynamicResource MainTextColor}"
+           VerticalOptions="Center"
+           FontSize="{DynamicResource LabelFontSize}" />
+              <Entry x:Name="PageToEntry"
+           Grid.Column="2"
+           Placeholder="{loc:Translate Search_Placeholder_PageTo}"
+           Keyboard="Numeric"
+           TextColor="{DynamicResource MainTextColor}"
+           PlaceholderColor="{DynamicResource HintTextColor}"
+           BackgroundColor="{DynamicResource PrimaryBackground}"
+           FontSize="{DynamicResource MainFontSize}"
+           Text="{Binding BookPageTo}" />
+            </Grid>
+            <Label Text="{Binding PageFromError}"
+                   TextColor="Red"
+                   FontSize="{DynamicResource ReadingPageInfoFontSize}"
+                   IsVisible="{Binding HasPageFromError}"
+                   Margin="0,2,0,0" />
+            <Label Text="{Binding PageToError}"
+                   TextColor="Red"
+                   FontSize="{DynamicResource ReadingPageInfoFontSize}"
+                   IsVisible="{Binding HasPageToError}"
+                   Margin="0,0,0,0" />
+          </VerticalStackLayout>
+
+
+          <Grid ColumnDefinitions="Auto,*" ColumnSpacing="6">
+          <Label Grid.Column="0"
+                 Text="{loc:Translate Search_Filter_Status}"
+                 TextColor="{DynamicResource MainTextColor}"
+                 VerticalOptions="Center"
+                 FontSize="{DynamicResource LabelFontSize}"/>
+          <Border Grid.Column="1"
+                  Stroke="{DynamicResource CardBorderColor}"
+                  StrokeThickness="1"
+                  StrokeShape="RoundRectangle 6"
+                  Padding="12,10"
+                  BackgroundColor="{DynamicResource PrimaryBackground}">
+            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+              <Label Grid.Column="0"
+                     VerticalOptions="Center"
+                     LineBreakMode="WordWrap"
+                     FontSize="{DynamicResource MainFontSize}"
+                     TextColor="{DynamicResource MainTextColor}">
+                <Label.Text>
+                  <MultiBinding Converter="{StaticResource PickerEnumDisplayMultiConverter}"
+                                ConverterParameter="Status">
+                    <Binding Path="SelectedStatus" />
+                    <Binding Path="CurrentCulture"
+                             Source="{x:Static loc:LocalizationResourceManager.Instance}" />
+                  </MultiBinding>
+                </Label.Text>
+              </Label>
+              <Image Grid.Column="1"
+                     Source="{DynamicResource UiIconArrowDownLight}"
+                     WidthRequest="{DynamicResource UiChromeIconSize}"
+                     HeightRequest="{DynamicResource UiChromeIconSize}"
+                     VerticalOptions="Center" />
+            </Grid>
+            <Border.GestureRecognizers>
+              <TapGestureRecognizer Tapped="OnSearchStatusTapped" />
+            </Border.GestureRecognizers>
+          </Border>
+        </Grid>
+
+        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="6">
+          <Label Grid.Column="0"
+                 Text="{loc:Translate Search_Filter_Reaction}"
+                 TextColor="{DynamicResource MainTextColor}"
+                 VerticalOptions="Center"
+                 FontSize="{DynamicResource LabelFontSize}"/>
+          <Border Grid.Column="1"
+                  Stroke="{DynamicResource CardBorderColor}"
+                  StrokeThickness="1"
+                  StrokeShape="RoundRectangle 6"
+                  Padding="12,10"
+                  BackgroundColor="{DynamicResource PrimaryBackground}">
+            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+              <Label Grid.Column="0"
+                     VerticalOptions="Center"
+                     LineBreakMode="WordWrap"
+                     FontSize="{DynamicResource MainFontSize}"
+                     TextColor="{DynamicResource MainTextColor}">
+                <Label.Text>
+                  <MultiBinding Converter="{StaticResource PickerEnumDisplayMultiConverter}"
+                                ConverterParameter="Reaction">
+                    <Binding Path="SelectedReaction" />
+                    <Binding Path="CurrentCulture"
+                             Source="{x:Static loc:LocalizationResourceManager.Instance}" />
+                  </MultiBinding>
+                </Label.Text>
+              </Label>
+              <Image Grid.Column="1"
+                     Source="{DynamicResource UiIconArrowDownLight}"
+                     WidthRequest="{DynamicResource UiChromeIconSize}"
+                     HeightRequest="{DynamicResource UiChromeIconSize}"
+                     VerticalOptions="Center" />
+            </Grid>
+            <Border.GestureRecognizers>
+              <TapGestureRecognizer Tapped="OnSearchReactionTapped" />
+            </Border.GestureRecognizers>
+          </Border>
+        </Grid>
+
+        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="6">
+          <Label Grid.Column="0"
+                 Text="{loc:Translate Search_Filter_Sort}"
+                 TextColor="{DynamicResource MainTextColor}"
+                 VerticalOptions="Center"
+                 FontSize="{DynamicResource LabelFontSize}"/>
+          <Border Grid.Column="1"
+                  Stroke="{DynamicResource CardBorderColor}"
+                  StrokeThickness="1"
+                  StrokeShape="RoundRectangle 6"
+                  Padding="12,10"
+                  BackgroundColor="{DynamicResource PrimaryBackground}">
+            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+              <Label Grid.Column="0"
+                     VerticalOptions="Center"
+                     LineBreakMode="WordWrap"
+                     FontSize="{DynamicResource MainFontSize}"
+                     TextColor="{DynamicResource MainTextColor}">
+                <Label.Text>
+                  <MultiBinding Converter="{StaticResource PickerEnumDisplayMultiConverter}"
+                                ConverterParameter="Sort">
+                    <Binding Path="SelectedSort" />
+                    <Binding Path="CurrentCulture"
+                             Source="{x:Static loc:LocalizationResourceManager.Instance}" />
+                  </MultiBinding>
+                </Label.Text>
+              </Label>
+              <Image Grid.Column="1"
+                     Source="{DynamicResource UiIconArrowDownLight}"
+                     WidthRequest="{DynamicResource UiChromeIconSize}"
+                     HeightRequest="{DynamicResource UiChromeIconSize}"
+                     VerticalOptions="Center" />
+            </Grid>
+            <Border.GestureRecognizers>
+              <TapGestureRecognizer Tapped="OnSearchSortTapped" />
+            </Border.GestureRecognizers>
+          </Border>
+        </Grid>
+        </VerticalStackLayout>
+
+        <Button Text="{loc:Translate Search_ApplyResults}"
+        TextColor="{DynamicResource ActiveButtonTextColor}"
+        Margin="15,0,15,0"
+        BackgroundColor="{DynamicResource ActiveButtonBackgroundColor}"
+        FontSize="{DynamicResource ButtonFontSize}"
+        CornerRadius="8"
+        IsEnabled="{Binding CanApplySearch}"
+        Clicked="OnShowResultsClicked" />
+
+      </VerticalStackLayout>
+    </toolkit:Expander>
+  </VerticalStackLayout>
+</ContentView>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="BookReaderApp.Resources.Themes.Shared.SharedUiResources">
+
+  <x:Double x:Key="MainFontSize">16</x:Double>
+  <x:Double x:Key="LabelFontSize">16</x:Double>
+  <x:Double x:Key="ButtonFontSize">16</x:Double>
+  <x:String x:Key="CardShapeString">RoundRectangle 10</x:String>
+
+  <Thickness x:Key="CardOuterMargin">16,8</Thickness>
+  <Thickness x:Key="CardPadding">12</Thickness>
+  <x:Double x:Key="CardRowSpacing">4</x:Double>
+  <x:Double x:Key="CardColumnSpacing">8</x:Double>
+  <x:Double x:Key="BookCoverFontSize">14</x:Double>
+  <x:Double x:Key="BookTitleFontSize">16</x:Double>
+  <x:Double x:Key="AppTitleFontSize">18</x:Double>
+
+  <RoundRectangle x:Key="RoundedCornersShape" CornerRadius="12"/>
+
+  <Thickness x:Key="BookPageMargin">16,16,16,24</Thickness>
+
+  <x:Double x:Key="ReadingTitleFontSize">22</x:Double>
+  <x:Double x:Key="ReadingAuthorFontSize">14</x:Double>
+  <x:Double x:Key="ReadingPageInfoFontSize">12</x:Double>
+  <x:Double x:Key="ReadingTextFontSize">16</x:Double>
+  <x:Double x:Key="ReadingProgressFontSize">12</x:Double>
+
+  <x:Double x:Key="NoteTitleFontSize">18</x:Double>
+  <x:Double x:Key="NoteTextFontSize">14</x:Double>
+  <Thickness x:Key="NotesPagePadding">20,10,20,10</Thickness>
+
+  <!-- Хром UI; при смене размера интерфейса переопределяется в Application.Resources. -->
+  <x:Double x:Key="UiChromeIconSize">18</x:Double>
+  <x:Double x:Key="UiChromeTapMinSize">36</x:Double>
+  <x:Double x:Key="UiSwipeVersionArrowSize">28</x:Double>
+  <x:Double x:Key="UiSplashActivitySize">36</x:Double>
+  <x:Double x:Key="UiInlineIconSize">20</x:Double>
+  <x:Double x:Key="UiInlineTapMinSize">32</x:Double>
+  <x:Double x:Key="UiDismissIconSize">20</x:Double>
+  <x:Double x:Key="UiDismissTapMinSize">32</x:Double>
+  <x:Double x:Key="UiBookCardExpanderHeaderMinHeight">44</x:Double>
+
+  <Style x:Key="BookMetaLabelStyle" TargetType="Label">
+    <Setter Property="FontSize" Value="{DynamicResource MainFontSize}" />
+    <Setter Property="TextColor" Value="{DynamicResource HintTextColor}" />
+  </Style>
+
+  <Style x:Key="BookMetaValueStyle" TargetType="Label">
+    <Setter Property="FontSize" Value="{DynamicResource MainFontSize}" />
+    <Setter Property="TextColor" Value="{DynamicResource MainTextColor}" />
+  </Style>
+
+  <Style x:Key="BookTitleLabelStyle" TargetType="Label">
+    <Setter Property="FontSize" Value="{DynamicResource BookTitleFontSize}" />
+    <Setter Property="TextColor" Value="{DynamicResource MainTextColor}" />
+  </Style>
+
+  <Style x:Key="AppTitleStyle" TargetType="Label">
+    <Setter Property="FontSize" Value="{DynamicResource AppTitleFontSize}" />
+    <Setter Property="TextColor" Value="{DynamicResource MainTextColor}" />
+  </Style>
+
+</ResourceDictionary>

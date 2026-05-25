@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:loc="clr-namespace:BookReaderApp.Localization"
+             x:Class="BookReaderApp.TextSettingsPage"
+             Title="{loc:Translate TextSettings_PageTitle}"
+             BackgroundColor="{DynamicResource PrimaryBackground}">
+
+  <Grid RowDefinitions="Auto,*">
+
+    <Grid Grid.Row="0"
+          Padding="15,10,15,5"
+          BackgroundColor="{DynamicResource PrimaryBackground}"
+          ColumnDefinitions="Auto,*,Auto">
+      <ImageButton Grid.Column="0"
+                   Style="{StaticResource ChromeImageButtonStyle}"
+                   Source="{DynamicResource UiIconArrowBack}"
+                   WidthRequest="{DynamicResource UiChromeIconSize}"
+                   HeightRequest="{DynamicResource UiChromeIconSize}"
+                   Aspect="AspectFit"
+                   ToolTipProperties.Text="{loc:Translate Reading_Chrome_Back}"
+                   Clicked="OnBackClicked" />
+      <Label Grid.Column="1"
+             Text="{loc:Translate TextSettings_PageTitle}"
+             Style="{DynamicResource AppTitleStyle}"
+             VerticalOptions="Center"
+             HorizontalOptions="Center" />
+      <BoxView Grid.Column="2" WidthRequest="{DynamicResource UiChromeIconSize}" HeightRequest="{DynamicResource UiChromeIconSize}" Opacity="0" />
+    </Grid>
+
+    <ScrollView Grid.Row="1" BackgroundColor="{DynamicResource PrimaryBackground}">
+      <VerticalStackLayout Padding="20" Spacing="25">
+
+        <Frame BorderColor="{DynamicResource CardBorderColor}"
+               Background="{DynamicResource BookCardBackground}"
+               Padding="15"
+               CornerRadius="10"
+               HasShadow="False">
+          <VerticalStackLayout Spacing="10">
+            <Label Text="{loc:Translate TextSettings_FontSize}"
+                   FontSize="{DynamicResource MainFontSize}"
+                   TextColor="{DynamicResource MainTextColor}" />
+            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+              <Button Grid.Column="0" x:Name="FontDecreaseBtn" Text="&lt;"
+                      FontSize="{DynamicResource ButtonFontSize}"
+                      TextColor="{DynamicResource ActiveButtonTextColor}"
+                      BackgroundColor="{DynamicResource ActiveButtonBackgroundColor}"
+                      Clicked="OnFontDecreaseClicked" />
+              <Label Grid.Column="1" x:Name="FontSizeValueLabel"
+                     HorizontalOptions="Center" VerticalOptions="Center"
+                     FontSize="{DynamicResource MainFontSize}"
+                     TextColor="{DynamicResource MainTextColor}" />
+              <Button Grid.Column="2" x:Name="FontIncreaseBtn" Text="&gt;"
+                      FontSize="{DynamicResource ButtonFontSize}"
+                      TextColor="{DynamicResource ActiveButtonTextColor}"
+                      BackgroundColor="{DynamicResource ActiveButtonBackgroundColor}"
+                      Clicked="OnFontIncreaseClicked" />
+            </Grid>
+          </VerticalStackLayout>
+        </Frame>
+
+        <Frame BorderColor="{DynamicResource CardBorderColor}"
+               Background="{DynamicResource BookCardBackground}"
+               Padding="15"
+               CornerRadius="10"
+               HasShadow="False">
+          <VerticalStackLayout Spacing="10">
+            <Label Text="{loc:Translate TextSettings_BgColor}"
+                   FontSize="{DynamicResource MainFontSize}"
+                   TextColor="{DynamicResource MainTextColor}" />
+            <HorizontalStackLayout Spacing="12">
+              <Border x:Name="BgColorPreview" StrokeThickness="1" Stroke="#888888"
+                      WidthRequest="40" HeightRequest="40" StrokeShape="RoundRectangle 8">
+                <Border.GestureRecognizers>
+                  <TapGestureRecognizer Tapped="OnBgColorTapped" />
+                </Border.GestureRecognizers>
+              </Border>
+              <Button Text="{loc:Translate TextSettings_PickColor}" Clicked="OnBgColorTapped"
+                      FontSize="{DynamicResource MainFontSize}"
+                      TextColor="{DynamicResource MainTextColor}"
+                      BackgroundColor="{DynamicResource PrimaryBackground}" />
+            </HorizontalStackLayout>
+          </VerticalStackLayout>
+        </Frame>
+
+        <Frame BorderColor="{DynamicResource CardBorderColor}"
+               Background="{DynamicResource BookCardBackground}"
+               Padding="15"
+               CornerRadius="10"
+               HasShadow="False">
+          <VerticalStackLayout Spacing="10">
+            <Label Text="{loc:Translate TextSettings_FgColor}"
+                   FontSize="{DynamicResource MainFontSize}"
+                   TextColor="{DynamicResource MainTextColor}" />
+            <HorizontalStackLayout Spacing="12">
+              <Border x:Name="FgColorPreview" StrokeThickness="1" Stroke="#888888"
+                      WidthRequest="40" HeightRequest="40" StrokeShape="RoundRectangle 8">
+                <Border.GestureRecognizers>
+                  <TapGestureRecognizer Tapped="OnFgColorTapped" />
+                </Border.GestureRecognizers>
+              </Border>
+              <Button Text="{loc:Translate TextSettings_PickColor}" Clicked="OnFgColorTapped"
+                      FontSize="{DynamicResource MainFontSize}"
+                      TextColor="{DynamicResource MainTextColor}"
+                      BackgroundColor="{DynamicResource PrimaryBackground}" />
+            </HorizontalStackLayout>
+          </VerticalStackLayout>
+        </Frame>
+
+        <Frame BorderColor="{DynamicResource CardBorderColor}"
+               Background="{DynamicResource BookCardBackground}"
+               Padding="15"
+               CornerRadius="10"
+               HasShadow="False">
+          <VerticalStackLayout Spacing="10">
+            <Label Text="{loc:Translate TextSettings_Margins}"
+                   FontSize="{DynamicResource MainFontSize}"
+                   TextColor="{DynamicResource MainTextColor}" />
+            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+              <Button Grid.Column="0" x:Name="MarginDecreaseBtn" Text="&lt;"
+                      FontSize="{DynamicResource ButtonFontSize}"
+                      TextColor="{DynamicResource ActiveButtonTextColor}"
+                      BackgroundColor="{DynamicResource ActiveButtonBackgroundColor}"
+                      Clicked="OnMarginDecreaseClicked" />
+              <Label Grid.Column="1" x:Name="MarginValueLabel"
+                     HorizontalOptions="Center" VerticalOptions="Center"
+                     FontSize="{DynamicResource MainFontSize}"
+                     TextColor="{DynamicResource MainTextColor}" />
+              <Button Grid.Column="2" x:Name="MarginIncreaseBtn" Text="&gt;"
+                      FontSize="{DynamicResource ButtonFontSize}"
+                      TextColor="{DynamicResource ActiveButtonTextColor}"
+                      BackgroundColor="{DynamicResource ActiveButtonBackgroundColor}"
+                      Clicked="OnMarginIncreaseClicked" />
+            </Grid>
+          </VerticalStackLayout>
+        </Frame>
+
+        <Frame BorderColor="{DynamicResource CardBorderColor}"
+               Background="{DynamicResource BookCardBackground}"
+               Padding="15"
+               CornerRadius="10"
+               HasShadow="False">
+          <VerticalStackLayout Spacing="10">
+            <Label Text="{loc:Translate TextSettings_Alignment}"
+                   FontSize="{DynamicResource MainFontSize}"
+                   TextColor="{DynamicResource MainTextColor}" />
+            <Border Stroke="{DynamicResource CardBorderColor}"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 6"
+                    Padding="12,10"
+                    BackgroundColor="{DynamicResource PrimaryBackground}">
+              <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                <Label x:Name="AlignmentValueLabel"
+                       Grid.Column="0"
+                       VerticalOptions="Center"
+                       LineBreakMode="WordWrap"
+                       FontSize="{DynamicResource MainFontSize}"
+                       TextColor="{DynamicResource MainTextColor}" />
+                <Image Grid.Column="1"
+                       Source="{DynamicResource UiIconArrowDownLight}"
+                       WidthRequest="{DynamicResource UiChromeIconSize}"
+                       HeightRequest="{DynamicResource UiChromeIconSize}"
+                       VerticalOptions="Center" />
+              </Grid>
+              <Border.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnAlignmentPickTapped" />
+              </Border.GestureRecognizers>
+            </Border>
+          </VerticalStackLayout>
+        </Frame>
+
+        <Frame BorderColor="{DynamicResource CardBorderColor}"
+               Background="{DynamicResource BookCardBackground}"
+               Padding="15"
+               CornerRadius="10"
+               HasShadow="False">
+          <VerticalStackLayout Spacing="10">
+            <Label Text="{loc:Translate TextSettings_PageTurn}"
+                   FontSize="{DynamicResource MainFontSize}"
+                   TextColor="{DynamicResource MainTextColor}" />
+            <Border Stroke="{DynamicResource CardBorderColor}"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 6"
+                    Padding="12,10"
+                    BackgroundColor="{DynamicResource PrimaryBackground}">
+              <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                <Label x:Name="ScrollingValueLabel"
+                       Grid.Column="0"
+                       VerticalOptions="Center"
+                       LineBreakMode="WordWrap"
+                       FontSize="{DynamicResource MainFontSize}"
+                       TextColor="{DynamicResource MainTextColor}" />
+                <Image Grid.Column="1"
+                       Source="{DynamicResource UiIconArrowDownLight}"
+                       WidthRequest="{DynamicResource UiChromeIconSize}"
+                       HeightRequest="{DynamicResource UiChromeIconSize}"
+                       VerticalOptions="Center" />
+              </Grid>
+              <Border.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnScrollingPickTapped" />
+              </Border.GestureRecognizers>
+            </Border>
+          </VerticalStackLayout>
+        </Frame>
+
+        <Frame BorderColor="{DynamicResource CardBorderColor}"
+               Background="{DynamicResource BookCardBackground}"
+               Padding="15"
+               CornerRadius="10"
+               HasShadow="False">
+          <VerticalStackLayout Spacing="10">
+            <Label Text="{loc:Translate TextSettings_TranslatorLang}"
+                   FontSize="{DynamicResource MainFontSize}"
+                   TextColor="{DynamicResource MainTextColor}" />
+            <Border Stroke="{DynamicResource CardBorderColor}"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 6"
+                    Padding="12,10"
+                    BackgroundColor="{DynamicResource PrimaryBackground}">
+              <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                <Label x:Name="TranslationLanguageValueLabel"
+                       Grid.Column="0"
+                       VerticalOptions="Center"
+                       LineBreakMode="TailTruncation"
+                       FontSize="{DynamicResource MainFontSize}"
+                       TextColor="{DynamicResource MainTextColor}" />
+                <Image Grid.Column="1"
+                       Source="{DynamicResource UiIconArrowDownLight}"
+                       WidthRequest="{DynamicResource UiChromeIconSize}"
+                       HeightRequest="{DynamicResource UiChromeIconSize}"
+                       VerticalOptions="Center" />
+              </Grid>
+              <Border.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnTranslationLanguageTapped" />
+              </Border.GestureRecognizers>
+            </Border>
+          </VerticalStackLayout>
+        </Frame>
+
+      </VerticalStackLayout>
+    </ScrollView>
+
+    <Grid x:Name="ColorOverlay"
+          Grid.RowSpan="2"
+          IsVisible="False"
+          ZIndex="100"
+          BackgroundColor="#66000000">
+      <Grid.GestureRecognizers>
+        <TapGestureRecognizer Tapped="OnColorOverlayBackdropTapped" />
+      </Grid.GestureRecognizers>
+      <Border VerticalOptions="Center"
+              HorizontalOptions="Fill"
+              Margin="24"
+              Padding="16"
+              StrokeShape="RoundRectangle 12"
+              BackgroundColor="{DynamicResource PrimaryBackground}"
+              StrokeThickness="0">
+        <Border.GestureRecognizers>
+          <TapGestureRecognizer Tapped="OnColorDialogBubbleTapped" />
+        </Border.GestureRecognizers>
+        <VerticalStackLayout Spacing="12">
+          <Grid ColumnDefinitions="*,Auto">
+            <Label x:Name="ColorDialogTitle"
+                   FontSize="{DynamicResource AppTitleFontSize}"
+                   TextColor="{DynamicResource MainTextColor}" />
+            <ImageButton Grid.Column="1"
+                         Style="{StaticResource DismissChromeImageButtonStyle}"
+                         Source="{DynamicResource UiIconClose}"
+                         WidthRequest="{DynamicResource UiDismissIconSize}"
+                         HeightRequest="{DynamicResource UiDismissIconSize}"
+                         Aspect="AspectFit"
+                         Clicked="OnColorDialogCancelClicked" />
+          </Grid>
+          <ScrollView HeightRequest="220">
+            <FlexLayout x:Name="ColorPaletteFlex" Wrap="Wrap" AlignItems="Start" AlignContent="Start" />
+          </ScrollView>
+          <HorizontalStackLayout Spacing="12" HorizontalOptions="End">
+            <Button Text="{loc:Translate Common_Cancel}" Clicked="OnColorDialogCancelClicked"
+                    FontSize="{DynamicResource MainFontSize}"
+                    TextColor="{DynamicResource MainTextColor}" BackgroundColor="#E0E0E0" />
+            <Button Text="{loc:Translate Common_OK}" Clicked="OnColorDialogOkClicked"
+                    FontSize="{DynamicResource MainFontSize}"
+                    TextColor="{DynamicResource ActiveButtonTextColor}" BackgroundColor="{DynamicResource ActiveButtonBackgroundColor}" />
+          </HorizontalStackLayout>
+        </VerticalStackLayout>
+      </Border>
+    </Grid>
+  </Grid>
+</ContentPage>

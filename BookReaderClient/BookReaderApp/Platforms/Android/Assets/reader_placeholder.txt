@@ -1,0 +1,1 @@
+Placeholder for WebView BaseUrl file:///android_asset/ — required for reliable HTML loading on Android.

@@ -1,0 +1,85 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:conv="clr-namespace:BookReaderApp.Converters"
+             xmlns:loc="clr-namespace:BookReaderApp.Localization"
+             x:Class="BookReaderApp.UploadPage"
+             BackgroundColor="{DynamicResource PrimaryBackground}">
+
+  <ContentPage.Resources>
+    <conv:InvertedBoolConverter x:Key="InvertedBoolConverter"/>
+  </ContentPage.Resources>
+  <Grid RowDefinitions="Auto,*">
+    <Grid Grid.Row="0" Padding="15" BackgroundColor="{DynamicResource PrimaryBackground}"
+          ColumnDefinitions="Auto,*,Auto" HeightRequest="60">
+      <ImageButton Grid.Column="0"
+             Style="{StaticResource ChromeImageButtonStyle}"
+             Source="{DynamicResource UiIconArrowBack}"
+             WidthRequest="{DynamicResource UiChromeIconSize}"
+             HeightRequest="{DynamicResource UiChromeIconSize}"
+             Aspect="AspectFit"
+             ToolTipProperties.Text="{loc:Translate Reading_Chrome_Back}"
+             Clicked="OnBackClicked" />
+      <Label Grid.Column="1" Text="{loc:Translate UploadTitle}" Style="{DynamicResource AppTitleStyle}" HorizontalOptions="Center" VerticalOptions="Center"/>
+      <BoxView Grid.Column="2" WidthRequest="50" HeightRequest="1" BackgroundColor="Transparent"/>
+    </Grid>
+    <VerticalStackLayout Grid.Row="1" Padding="20" Spacing="20" VerticalOptions="Center"
+                         BackgroundColor="{DynamicResource PrimaryBackground}">
+      <VerticalStackLayout x:Name="LanguageSelectionContainer" Spacing="10" IsVisible="{Binding IsUploading, Converter={StaticResource InvertedBoolConverter}}">
+        <Label Text="{loc:Translate UploadLanguageLabel}" TextColor="{DynamicResource MainTextColor}" FontSize="{DynamicResource ButtonFontSize}" />
+        <Border Stroke="{DynamicResource CardBorderColor}"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 6"
+                Padding="12,10"
+                BackgroundColor="{DynamicResource PrimaryBackground}">
+          <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+            <Label Grid.Column="0"
+                   Text="{Binding SelectedLanguageDisplay}"
+                   VerticalOptions="Center"
+                   LineBreakMode="TailTruncation"
+                   FontSize="{DynamicResource ButtonFontSize}"
+                   TextColor="{DynamicResource MainTextColor}" />
+            <Image Grid.Column="1"
+                   Source="{DynamicResource UiIconArrowDownLight}"
+                   WidthRequest="{DynamicResource UiChromeIconSize}"
+                   HeightRequest="{DynamicResource UiChromeIconSize}"
+                   VerticalOptions="Center" />
+          </Grid>
+          <Border.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnUploadLanguageTapped" />
+          </Border.GestureRecognizers>
+        </Border>
+      </VerticalStackLayout>
+      <Button x:Name="UploadButton" Text="{loc:Translate UploadButtonLabel}" 
+              FontSize="{DynamicResource ButtonFontSize}"
+              IsEnabled="{Binding IsLanguageSelected}" 
+              IsVisible="{Binding IsUploading, Converter={StaticResource InvertedBoolConverter}}"
+              Clicked="OnUploadClicked">
+        <Button.Style>
+          <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{DynamicResource InactiveButtonBackgroundColor}" />
+            <Setter Property="TextColor" Value="{DynamicResource InactiveButtonTextColor}" />
+            <Style.Triggers>
+              <DataTrigger TargetType="Button"
+                           Binding="{Binding IsLanguageSelected}"
+                           Value="True">
+                <Setter Property="BackgroundColor" Value="{DynamicResource ActiveButtonBackgroundColor}" />
+                <Setter Property="TextColor" Value="{DynamicResource ActiveButtonTextColor}" />
+              </DataTrigger>
+            </Style.Triggers>
+          </Style>
+        </Button.Style>
+      </Button>
+      <VerticalStackLayout x:Name="ProgressContainer" IsVisible="{Binding IsUploading}" Spacing="10">
+        <Label Text="{Binding ProgressText}" HorizontalOptions="Center" FontSize="{DynamicResource ButtonFontSize}" TextColor="{DynamicResource MainTextColor}"/>
+        <ProgressBar Progress="{Binding UploadProgress}" ProgressColor="{DynamicResource ProgressColor}"/>
+        <Label Text="{Binding UploadProgressPercent}" HorizontalOptions="Center" FontSize="{DynamicResource LabelFontSize}"/>
+        <Label Text="{loc:Translate AfterUploadHint}"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"
+               FontSize="{DynamicResource LabelFontSize}"
+               TextColor="{DynamicResource HintTextColor}"
+               Margin="0,10,0,0"/>
+      </VerticalStackLayout>
+    </VerticalStackLayout>
+  </Grid>
+</ContentPage>

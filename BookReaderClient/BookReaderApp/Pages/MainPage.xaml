@@ -1,0 +1,110 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:BookReaderApp.Views"
+             xmlns:vm="clr-namespace:BookReaderApp.ViewModels"
+             xmlns:loc="clr-namespace:BookReaderApp.Localization"
+             x:Class="BookReaderApp.MainPage"
+             x:Name="MainPageRoot"
+             BackgroundColor="{DynamicResource PrimaryBackground}">
+
+  <ContentPage.BindingContext>
+    <vm:MainPageViewModel />
+  </ContentPage.BindingContext>
+
+  <Grid x:Name="MainRootGrid">
+    <Grid RowDefinitions="Auto,*">
+
+    <!-- Верхняя панель -->
+    <Grid Grid.Row="0"
+        Padding="20,10,15,5"
+        BackgroundColor="{DynamicResource PrimaryBackground}">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <!-- Заголовок -->
+        <ColumnDefinition Width="Auto"/>
+        <!-- Последняя книга -->
+        <ColumnDefinition Width="Auto"/>
+        <!-- Загрузка -->
+        <ColumnDefinition Width="Auto"/>
+        <!-- Настройки -->
+      </Grid.ColumnDefinitions>
+
+      <Label Grid.Column="0"
+           Text="{loc:Translate AppTitle}"
+           Style="{DynamicResource AppTitleStyle}"
+           TextColor="{DynamicResource MainTextColor}"
+           VerticalOptions="Center" />
+
+      <ImageButton Grid.Column="1"
+                 Style="{StaticResource ChromeImageButtonStyle}"
+                 Source="{DynamicResource UiIconLastBook}"
+                 WidthRequest="{DynamicResource UiChromeIconSize}"
+                 HeightRequest="{DynamicResource UiChromeIconSize}"
+                   Margin="15,0,0,0"
+                 Aspect="AspectFit"
+                 Clicked="OnContinueLastBookClicked" />
+
+      <!-- Кнопка Загрузка -->
+      <ImageButton Grid.Column="2"
+                 Style="{StaticResource ChromeImageButtonStyle}"
+                 Source="{DynamicResource UiIconDownload}"
+                 WidthRequest="{DynamicResource UiChromeIconSize}"
+                 HeightRequest="{DynamicResource UiChromeIconSize}"
+                 Aspect="AspectFit"
+                   Margin="15,0,0,0"
+                 Clicked="OnUploadClicked" />
+
+      <!-- Кнопка Настройки -->
+      <ImageButton Grid.Column="3"
+                 Style="{StaticResource ChromeImageButtonStyle}"
+                 Source="{DynamicResource UiIconSettings}"
+                 WidthRequest="{DynamicResource UiChromeIconSize}"
+                 HeightRequest="{DynamicResource UiChromeIconSize}"
+                 Aspect="AspectFit"
+                 Margin="15,0,0,0"
+                 Clicked="OnSettingsClicked" />
+    </Grid>
+
+    <!-- Поиск в Header CollectionView — прокручивается вместе с карточками, не закреплён поверх списка. -->
+    <Grid Grid.Row="1"
+          Padding="0"
+          BackgroundColor="{DynamicResource PrimaryBackground}">
+      <CollectionView x:Name="MainBooksCollection"
+                      ItemsSource="{Binding BookGroups}"
+                      SelectionMode="None"
+                      BackgroundColor="{DynamicResource PrimaryBackground}"
+                      ItemSizingStrategy="MeasureAllItems">
+        <CollectionView.Header>
+          <VerticalStackLayout Padding="0,0,0,6"
+                               BackgroundColor="{DynamicResource PrimaryBackground}">
+            <views:SearchBarView x:Name="SearchBar"
+                                 BindingContext="{Binding Source={x:Reference MainPageRoot}, Path=BindingContext.SearchFilter}" />
+          </VerticalStackLayout>
+        </CollectionView.Header>
+        <CollectionView.ItemTemplate>
+          <DataTemplate x:DataType="vm:BookGroupViewModel">
+            <views:BookCardSwipeView BookTapped="OnBookCardTapped"
+                                     CardDeleteRequested="OnCardDeleteRequested"
+                                     CardTranslateRequested="OnCardTranslateRequested" />
+          </DataTemplate>
+        </CollectionView.ItemTemplate>
+      </CollectionView>
+    </Grid>
+  </Grid>
+
+    <!-- Заставка при первом показе главного экрана: только индикатор загрузки. -->
+    <Grid x:Name="LaunchSplashOverlay"
+          ZIndex="1000"
+          BackgroundColor="{DynamicResource PrimaryBackground}"
+          IsVisible="False"
+          InputTransparent="False">
+      <ActivityIndicator x:Name="LaunchSplashContent"
+                         IsRunning="True"
+                         Color="{DynamicResource Primary}"
+                         WidthRequest="{DynamicResource UiSplashActivitySize}"
+                         HeightRequest="{DynamicResource UiSplashActivitySize}"
+                         VerticalOptions="Center"
+                         HorizontalOptions="Center" />
+    </Grid>
+  </Grid>
+</ContentPage>

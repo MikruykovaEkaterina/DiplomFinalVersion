@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="BookReaderApp.Resources.Themes.Light.LightPalette">
+
+  <Color x:Key="Primary">#1b8a8c</Color>
+
+  <Color x:Key="MainTextColor">#1F1F1F</Color>
+  <Color x:Key="HintTextColor">#888888</Color>
+  <Color x:Key="ActiveButtonBackgroundColor">#1b8a8c</Color>
+  <Color x:Key="PrimaryBackground">White</Color>
+  <Color x:Key="LabelBackground">#2D89EF</Color>
+  <Color x:Key="CardBorderColor">Gray</Color>
+  <Color x:Key="ActiveButtonBorderColor">#1b8a8c</Color>
+  <Color x:Key="ActiveButtonTextColor">#FFFFFF</Color>
+  <Color x:Key="BookCardBackground">#FFFFFF</Color>
+
+  <Color x:Key="BookCardSurfaceRead">#F6FAFA</Color>
+  <Color x:Key="BookCardSurfaceFavorite">#F3EBF5</Color>
+  <Color x:Key="BookRibbonReadBackground">#B2DFDB</Color>
+  <Color x:Key="BookRibbonReadText">#004D40</Color>
+  <Color x:Key="BookRibbonFavoriteBackground">#E1BEE7</Color>
+  <Color x:Key="BookRibbonFavoriteText">#4A148C</Color>
+  <Color x:Key="BookCardMenuButtonActiveTint">#C5D8DE</Color>
+  <Color x:Key="DescriptionExpanderHeaderBackground">#E6EEF0</Color>
+  <Color x:Key="DescriptionExpanderHeaderBackgroundAccent">#B9CBD4</Color>
+  <Color x:Key="ProgressColor">#1b8a8c</Color>
+
+  <Color x:Key="NotificationMessageTextColor">#177d1d</Color>
+  <Color x:Key="NotificationBackgroundColor">#C9C9C9</Color>
+
+  <Color x:Key="SecondaryTextColor">#666666</Color>
+  <Color x:Key="BookPageBackground">#FFFFFF</Color>
+  <Color x:Key="BottomPanelBackgroundColor">#FFFFFF</Color>
+  <Color x:Key="PrimaryColor">#1b8a8c</Color>
+  <Color x:Key="InactiveButtonBackgroundColor">#EEEEEE</Color>
+  <Color x:Key="InactiveButtonTextColor">#666666</Color>
+
+  <Shadow x:Key="CardShadow" Brush="#33000000" Offset="2,4" Radius="10" Opacity="1"/>
+
+  <!-- Баннеры (см. NotificationColors) -->
+  <Color x:Key="SnackbarErrorBackground">#FFEBEE</Color>
+  <Color x:Key="SnackbarErrorForeground">#B71C1C</Color>
+  <Color x:Key="SnackbarWarningBackground">#FFF8E1</Color>
+  <Color x:Key="SnackbarWarningForeground">#E65100</Color>
+  <Color x:Key="SnackbarSuccessBackground">#E8F5E9</Color>
+  <Color x:Key="SnackbarSuccessForeground">#1B5E20</Color>
+  <Color x:Key="SnackbarInfoBackground">#F5F5F5</Color>
+  <Color x:Key="SnackbarInfoForeground">#212121</Color>
+
+  <!-- Опционально для кастомных контролов; иконки UI — см. ключи UiIcon* ниже -->
+  <Color x:Key="TopBarIconTint">#1F1F1F</Color>
+
+  <!-- Затемнение под модальными окнами; поля ввода в фильтрах поиска -->
+  <Color x:Key="ModalScrimColor">#99000000</Color>
+  <Color x:Key="InputSurfaceBackground">#FFFFFF</Color>
+
+  <!-- Иконки UI: Resources/Images; тёмная тема — Resources/Images/Dark/*_dark.svg (ключи те же) -->
+  <FileImageSource x:Key="UiIconArrowBack" File="arrow_back.svg" />
+  <FileImageSource x:Key="UiIconMenuBook" File="menu_book.svg" />
+  <FileImageSource x:Key="UiIconNote" File="note.svg" />
+  <FileImageSource x:Key="UiIconHome" File="home.svg" />
+  <FileImageSource x:Key="UiIconTextSettings" File="text_settings.svg" />
+  <FileImageSource x:Key="UiIconSettings" File="settings.svg" />
+  <FileImageSource x:Key="UiIconArrowLeft" File="arrow_left.svg" />
+  <FileImageSource x:Key="UiIconArrowRight" File="arrow_right.svg" />
+  <FileImageSource x:Key="UiIconLastBook" File="last_book.svg" />
+  <FileImageSource x:Key="UiIconDownload" File="download.svg" />
+  <FileImageSource x:Key="UiIconArrowDown" File="arrow_down.svg" />
+  <FileImageSource x:Key="UiIconArrowUp" File="arrow_up.svg" />
+  <FileImageSource x:Key="UiIconClose" File="close.svg" />
+  <FileImageSource x:Key="UiIconMoreVertical" File="more_vertical.svg" />
+  <FileImageSource x:Key="UiIconArrowDownLight" File="arrow_down_light.svg" />
+  <FileImageSource x:Key="UiIconArrowUpLight" File="arrow_up_light.svg" />
+  <FileImageSource x:Key="UiIconSearchLight" File="search_light.svg" />
+  <FileImageSource x:Key="UiIconPlus" File="plus.svg" />
+</ResourceDictionary>

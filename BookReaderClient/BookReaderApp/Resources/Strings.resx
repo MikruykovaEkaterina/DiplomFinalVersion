@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AfterUploadHint" xml:space="preserve">
+    <value>После того, как книга будет загружена, мы вам сообщим</value>
+  </data>
+  <data name="AppTitle" xml:space="preserve">
+    <value>Название приложения</value>
+  </data>
+  <data name="AuthorLabel" xml:space="preserve">
+    <value>Автор:</value>
+  </data>
+  <data name="BookLabel" xml:space="preserve">
+    <value>Книга</value>
+  </data>
+  <data name="BookLanguage_English" xml:space="preserve">
+    <value>Английский</value>
+  </data>
+  <data name="BookLanguage_None" xml:space="preserve">
+    <value>Не выбрано</value>
+  </data>
+  <data name="BookLanguage_Russian" xml:space="preserve">
+    <value>Русский</value>
+  </data>
+  <data name="Upload_Progress_Format" xml:space="preserve"><value>Сейчас загружается книга на язык: {0}</value></data>
+  <data name="Upload_Error_LanguageNotSelected" xml:space="preserve"><value>Язык не выбран</value></data>
+  <data name="Translation_Progress_TargetOnly" xml:space="preserve"><value>Сейчас переводится книга на язык: {0}</value></data>
+  <data name="Translation_Progress_WithTitleTarget" xml:space="preserve"><value>Сейчас переводится книга: «{0}». На язык: {1}</value></data>
+  <data name="Translation_Progress_TitleOnly" xml:space="preserve"><value>Сейчас переводится книга: «{0}»</value></data>
+  <data name="BookReaction_Favorite" xml:space="preserve">
+    <value>Любимое</value>
+  </data>
+  <data name="BookReaction_None" xml:space="preserve">
+    <value>Не задано</value>
+  </data>
+  <data name="BookReaction_Unrated" xml:space="preserve">
+    <value>Не оценено</value>
+  </data>
+  <data name="BookSort_DateNew" xml:space="preserve">
+    <value>По дате (новые)</value>
+  </data>
+  <data name="BookSort_DateOld" xml:space="preserve">
+    <value>По дате (старые)</value>
+  </data>
+  <data name="BookSort_SizeAsc" xml:space="preserve">
+    <value>По размеру (от меньшего к большему)</value>
+  </data>
+  <data name="BookSort_SizeDesc" xml:space="preserve">
+    <value>По размеру (от большего к меньшему)</value>
+  </data>
+  <data name="BookSort_TitleAsc" xml:space="preserve">
+    <value>По названию (А-Я)</value>
+  </data>
+  <data name="BookSort_TitleDesc" xml:space="preserve">
+    <value>По названию (Я-А)</value>
+  </data>
+  <data name="BookStatus_InProgress" xml:space="preserve">
+    <value>В процессе</value>
+  </data>
+  <data name="BookStatus_New" xml:space="preserve">
+    <value>Новое</value>
+  </data>
+  <data name="BookStatus_None" xml:space="preserve">
+    <value>Не задано</value>
+  </data>
+  <data name="BookStatus_Read" xml:space="preserve">
+    <value>Прочитано</value>
+  </data>
+  <data name="DateAddedLabel" xml:space="preserve">
+    <value>Дата добавления:</value>
+  </data>
+  <data name="DescriptionLabel" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="GoTopLabel" xml:space="preserve">
+    <value>↑ Наверх</value>
+  </data>
+  <data name="InterfaceFontSizeLabel" xml:space="preserve">
+    <value>Размер текста интерфейса</value>
+  </data>
+  <data name="InterfaceSettingsTitle" xml:space="preserve">
+    <value>Настройки интерфейса</value>
+  </data>
+  <data name="InterfaceThemeLabel" xml:space="preserve">
+    <value>Тема интерфейса</value>
+  </data>
+  <data name="LanguageLabel" xml:space="preserve">
+    <value>Язык:</value>
+  </data>
+  <data name="LastOpenedLabel" xml:space="preserve">
+    <value>Последнее открытие:</value>
+  </data>
+  <data name="PagesLabel" xml:space="preserve">
+    <value>Количество страниц:</value>
+  </data>
+  <data name="ProgressLabel" xml:space="preserve">
+    <value>Процент прочтения:</value>
+  </data>
+  <data name="SearchButtonLabel" xml:space="preserve">
+    <value>Поиск</value>
+  </data>
+  <data name="Search_CollapseSearch" xml:space="preserve">
+    <value>Свернуть поиск</value>
+  </data>
+  <data name="SelectLanguageTitle" xml:space="preserve">
+    <value>Выберите язык</value>
+  </data>
+  <data name="SettingsLabel" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="UploadButton" xml:space="preserve">
+    <value>Загрузить</value>
+  </data>
+  <data name="UploadButtonLabel" xml:space="preserve">
+    <value>Загрузить</value>
+  </data>
+  <data name="UploadLanguageLabel" xml:space="preserve">
+    <value>Язык для загрузки:</value>
+  </data>
+  <data name="UploadTitle" xml:space="preserve">
+    <value>Загрузка книги</value>
+  </data>
+  <data name="TranslationTitle" xml:space="preserve">
+    <value>Перевод книги</value>
+  </data>
+  <data name="TranslationTargetLanguageLabel" xml:space="preserve">
+    <value>Язык перевода:</value>
+  </data>
+  <data name="TranslationButtonLabel" xml:space="preserve">
+    <value>Начать перевод</value>
+  </data>
+  <data name="TranslationCancelButtonLabel" xml:space="preserve">
+    <value>Отменить перевод</value>
+  </data>
+  <data name="AfterTranslationHint" xml:space="preserve">
+    <value>После того, как перевод будет готов, мы вам сообщим</value>
+  </data>
+  <data name="TranslationNotImplementedHint" xml:space="preserve">
+    <value>Запуск перевода будет добавлен в следующей версии приложения.</value>
+  </data>
+  <data name="TranslationActiveJobRunningMessage" xml:space="preserve">
+    <value>Уже выполняется перевод другой книги. Дождитесь завершения или отмените его, затем можно запустить перевод выбранной книги.</value>
+  </data>
+  <data name="TranslationBookPollNetworkNote" xml:space="preserve">
+    <value>Сейчас нет связи с сервером перевода — не удаётся обновить прогресс. Задача на сервере сохранена; как только сеть появится, мы снова запросим статус. Ниже — последний известный прогресс.</value>
+  </data>
+  <data name="Common_OK" xml:space="preserve"><value>OK</value></data>
+  <data name="Common_Cancel" xml:space="preserve"><value>Отмена</value></data>
+  <data name="Common_Error" xml:space="preserve"><value>Ошибка</value></data>
+  <data name="Common_Wait" xml:space="preserve"><value>Подождите</value></data>
+  <data name="Alert_BookNotFound" xml:space="preserve"><value>Книга не найдена в библиотеке.</value></data>
+  <data name="Alert_LocalBookFileMissing" xml:space="preserve"><value>Локальный файл книги не найден. Добавьте книгу с файлом на устройстве.</value></data>
+  <data name="Alert_OpenBookFailed" xml:space="preserve"><value>Не удалось открыть книгу.</value></data>
+  <data name="Alert_LastBookMissing" xml:space="preserve"><value>Сохранённая позиция указывает на книгу, которой сейчас нет в библиотеке. Откройте книгу из списка.</value></data>
+  <data name="Reading_WaitPages" xml:space="preserve"><value>Страницы ещё считаются…</value></data>
+  <data name="Reading_InvalidPageNumberInput" xml:space="preserve"><value>Неверный ввод: укажите целое число страницы (только цифры).</value></data>
+  <data name="Reading_TocUnavailable" xml:space="preserve"><value>Оглавление недоступно для этой книги.</value></data>
+  <data name="Reading_NotesComingSoon" xml:space="preserve"><value>Функция заметок будет реализована позже.</value></data>
+  <data name="Notes_AddNoteSoonTitle" xml:space="preserve"><value>Добавить заметку</value></data>
+  <data name="Notes_AddNoteSoonBody" xml:space="preserve"><value>Здесь будет окно создания заметки.</value></data>
+  <data name="Notes_ScreenTitle" xml:space="preserve"><value>Заметки по книге</value></data>
+  <data name="Notes_MyNotes" xml:space="preserve"><value>Мои заметки</value></data>
+  <data name="Notes_AddNote" xml:space="preserve"><value>Добавить заметку</value></data>
+  <data name="Notes_PageFormat" xml:space="preserve"><value>стр. {0}</value></data>
+  <data name="Notes_Untitled" xml:space="preserve"><value>Без названия</value></data>
+  <data name="Notes_EditorTitle" xml:space="preserve"><value>Новая заметка</value></data>
+  <data name="Notes_TitleField" xml:space="preserve"><value>Название</value></data>
+  <data name="Notes_TitlePlaceholder" xml:space="preserve"><value>Краткое название заметки</value></data>
+  <data name="Notes_TitleRequiredTitle" xml:space="preserve"><value>Нужно название</value></data>
+  <data name="Notes_TitleRequiredMessage" xml:space="preserve"><value>Введите название заметки, чтобы сохранить.</value></data>
+  <data name="Notes_CommentPlaceholder" xml:space="preserve"><value>Комментарий (необязательно)</value></data>
+  <data name="Notes_Save" xml:space="preserve"><value>Сохранить</value></data>
+  <data name="Notes_VersionUnavailable" xml:space="preserve"><value>Эта версия книги недоступна (файл удалён).</value></data>
+  <data name="Notes_NoNotesYet" xml:space="preserve"><value>Пока нет заметок.</value></data>
+  <data name="Notes_SavedSuccess" xml:space="preserve"><value>Заметка сохранена.</value></data>
+  <data name="Notes_DeleteConfirmTitle" xml:space="preserve"><value>Удалить заметку?</value></data>
+  <data name="Notes_DeleteConfirmMessage" xml:space="preserve"><value>Заметку нельзя будет восстановить.</value></data>
+  <data name="Notes_DeleteConfirmAction" xml:space="preserve"><value>Удалить</value></data>
+  <data name="Notes_DeletedSuccess" xml:space="preserve"><value>Заметка удалена.</value></data>
+  <data name="Search_Toast_ResetDone" xml:space="preserve"><value>Все параметры поиска сброшены.</value></data>
+  <data name="Search_Toast_ResultsOnMain" xml:space="preserve"><value>Результаты поиска будут отображены на главном экране.</value></data>
+  <data name="Reading_JumpPageTitle" xml:space="preserve"><value>Переход на страницу</value></data>
+  <data name="Reading_JumpPagePrompt" xml:space="preserve"><value>Введите номер от 1 до {0}</value></data>
+  <data name="Reading_JumpPageConfirm" xml:space="preserve"><value>Перейти</value></data>
+  <data name="Reading_Chrome_Back" xml:space="preserve"><value>Назад</value></data>
+  <data name="Reading_Chrome_Toc" xml:space="preserve"><value>Оглавление</value></data>
+  <data name="Reading_Chrome_Notes" xml:space="preserve"><value>Заметки</value></data>
+  <data name="Reading_Chrome_Home" xml:space="preserve"><value>На главный экран</value></data>
+  <data name="Reading_Chrome_TextSettings" xml:space="preserve"><value>Настройки текста</value></data>
+  <data name="Reading_Chrome_AppSettings" xml:space="preserve"><value>Настройки</value></data>
+  <data name="Reading_TocTitle" xml:space="preserve"><value>Оглавление</value></data>
+  <data name="Reading_OpeningBook" xml:space="preserve"><value>Открытие книги…</value></data>
+  <data name="Reading_OpeningNotePosition" xml:space="preserve"><value>Открываем место из заметки…</value></data>
+  <data name="Reading_ApplyingTextSettings" xml:space="preserve"><value>Применение настроек текста…</value></data>
+  <data name="Reading_PageProgressFormat" xml:space="preserve"><value>{0} из {1}</value></data>
+  <data name="Reading_ChapterNumberFormat" xml:space="preserve"><value>Глава {0}</value></data>
+  <data name="Reading_Title" xml:space="preserve"><value>Чтение</value></data>
+  <data name="Search_Reset" xml:space="preserve"><value>Сбросить поиск</value></data>
+  <data name="Search_Filter_Title" xml:space="preserve"><value>Название:</value></data>
+  <data name="Search_Filter_Author" xml:space="preserve"><value>Автор:</value></data>
+  <data name="Search_Placeholder_Title" xml:space="preserve"><value>Введите название</value></data>
+  <data name="Search_Placeholder_Author" xml:space="preserve"><value>Введите автора</value></data>
+  <data name="Search_Filter_BookSize" xml:space="preserve"><value>Размер книги (в страницах):</value></data>
+  <data name="Search_Placeholder_PageFrom" xml:space="preserve"><value>от</value></data>
+  <data name="Search_Placeholder_PageTo" xml:space="preserve"><value>до</value></data>
+  <data name="Search_Filter_Status" xml:space="preserve"><value>Статус:</value></data>
+  <data name="Search_Filter_Reaction" xml:space="preserve"><value>Реакция:</value></data>
+  <data name="Search_Filter_Sort" xml:space="preserve"><value>Сортировка:</value></data>
+  <data name="Search_ApplyResults" xml:space="preserve"><value>Показать результаты поиска</value></data>
+  <data name="Picker_SelectStatus" xml:space="preserve"><value>Выберите статус</value></data>
+  <data name="Picker_SelectReaction" xml:space="preserve"><value>Выберите реакцию</value></data>
+  <data name="Picker_SelectSort" xml:space="preserve"><value>Выберите метод сортировки</value></data>
+  <data name="Search_Page_Header" xml:space="preserve"><value>Поиск и фильтрация</value></data>
+  <data name="Search_Back" xml:space="preserve"><value>← Назад</value></data>
+  <data name="Search_Reset_Button" xml:space="preserve"><value>Сбросить поиск</value></data>
+  <data name="Search_Show_Button" xml:space="preserve"><value>Показать результаты</value></data>
+  <data name="Search_Toast_Empty" xml:space="preserve"><value>Введите хотя бы один параметр поиска</value></data>
+  <data name="Search_Toast_InvalidPages" xml:space="preserve"><value>Проверьте диапазон страниц — есть ошибки в полях</value></data>
+  <data name="Search_Validation_PagePositive" xml:space="preserve"><value>Значение должно быть больше 0</value></data>
+  <data name="Search_Validation_PageToLessThanFrom" xml:space="preserve"><value>«До» не может быть меньше «От»</value></data>
+  <data name="Note_BackTooltip" xml:space="preserve"><value>Назад</value></data>
+  <data name="Note_PageTitle" xml:space="preserve"><value>Заметки по книге</value></data>
+  <data name="Note_AddComingSoonTitle" xml:space="preserve"><value>Добавление заметки</value></data>
+  <data name="Note_AddComingSoonBody" xml:space="preserve"><value>Эта функция будет доступна позже.</value></data>
+  <data name="Note_MyNotes" xml:space="preserve"><value>Мои заметки</value></data>
+  <data name="Note_AddNote" xml:space="preserve"><value>Добавить заметку</value></data>
+  <data name="Note_TapHint" xml:space="preserve"><value>Нажмите на заметку, чтобы перейти к месту в книге</value></data>
+  <data name="Note_CommentHint" xml:space="preserve"><value>Комментарий: здесь можно записать свои мысли, перевод сложных фраз или вопросы к тексту.</value></data>
+  <data name="Note_SampleTitle" xml:space="preserve"><value>Новая лексика о войне</value></data>
+  <data name="Note_SamplePage" xml:space="preserve"><value>стр. 45</value></data>
+  <data name="TextSettings_Align_Center" xml:space="preserve"><value>По центру</value></data>
+  <data name="TextSettings_Align_End" xml:space="preserve"><value>По правому краю</value></data>
+  <data name="TextSettings_Align_Justify" xml:space="preserve"><value>По ширине</value></data>
+  <data name="TextSettings_Align_Start" xml:space="preserve"><value>По левому краю</value></data>
+  <data name="TextSettings_Picker_Alignment" xml:space="preserve"><value>Выравнивание</value></data>
+  <data name="TextSettings_Picker_Scrolling" xml:space="preserve"><value>Режим</value></data>
+  <data name="TextSettings_Scroll_Horizontal" xml:space="preserve"><value>Горизонтальная</value></data>
+  <data name="TextSettings_Scroll_Vertical" xml:space="preserve"><value>Вертикальная</value></data>
+  <data name="TextSettings_PageTitle" xml:space="preserve"><value>Настройки текста книги</value></data>
+  <data name="TextSettings_FontSize" xml:space="preserve"><value>Размер текста книги</value></data>
+  <data name="TextSettings_BgColor" xml:space="preserve"><value>Цвет фона</value></data>
+  <data name="TextSettings_FgColor" xml:space="preserve"><value>Цвет текста</value></data>
+  <data name="TextSettings_PickColor" xml:space="preserve"><value>Выбрать цвет…</value></data>
+  <data name="TextSettings_Margins" xml:space="preserve"><value>Поля (отступ от края)</value></data>
+  <data name="TextSettings_Alignment" xml:space="preserve"><value>Выравнивание текста</value></data>
+  <data name="TextSettings_PageTurn" xml:space="preserve"><value>Листание</value></data>
+  <data name="TextSettings_TranslatorLang" xml:space="preserve"><value>Язык перевода (переводчик)</value></data>
+  <data name="TextSettings_ColorDialogTitle" xml:space="preserve"><value>Цвет</value></data>
+  <data name="Theme_Name_Light" xml:space="preserve"><value>Светлая</value></data>
+  <data name="Theme_Name_Dark" xml:space="preserve"><value>Тёмная</value></data>
+  <data name="Theme_Name_Auto" xml:space="preserve"><value>Авто</value></data>
+  <data name="Interface_Language_Setting" xml:space="preserve"><value>Язык интерфейса</value></data>
+  <data name="Interface_Language_Display_Ru" xml:space="preserve"><value>Русский</value></data>
+  <data name="Interface_Language_Display_En" xml:space="preserve"><value>English</value></data>
+  <data name="Interface_Language_Title" xml:space="preserve"><value>Язык интерфейса</value></data>
+  <data name="Interface_FontSize_Small" xml:space="preserve"><value>Малый</value></data>
+  <data name="Interface_FontSize_Medium" xml:space="preserve"><value>Средний</value></data>
+  <data name="Interface_FontSize_Large" xml:space="preserve"><value>Крупный</value></data>
+  <data name="Interface_FontSize_Format" xml:space="preserve"><value>{0} ({1})</value></data>
+  <data name="Notification_InvalidUploadFormat" xml:space="preserve"><value>Выбран файл недопустимого формата. Поддерживаемые форматы: FB2, EPUB, EPUB.zip, FB2.zip</value></data>
+  <data name="Notification_UploadCancelled" xml:space="preserve"><value>Загрузка отменена.</value></data>
+  <data name="Notification_UploadFailedGeneric" xml:space="preserve"><value>Не удалось загрузить книгу. Попробуйте ещё раз.</value></data>
+  <data name="Notification_UploadFailedGenericLater" xml:space="preserve"><value>Не удалось загрузить книгу. Попробуйте ещё раз позже.</value></data>
+  <data name="Notification_UploadFailedWithDetail" xml:space="preserve"><value>Не удалось загрузить книгу: {0}</value></data>
+  <data name="Notification_UploadSuccessTapOpen" xml:space="preserve"><value>Книга успешно загружена. Нажмите, чтобы открыть</value></data>
+  <data name="Notification_TranslationExpired" xml:space="preserve"><value>Перевод на сервере больше недоступен: срок хранения истёк или файл уже удалён. Запустите перевод снова, когда будете готовы скачать результат.</value></data>
+  <data name="Notification_TranslationCompleteFormat" xml:space="preserve"><value>Книга «{0}» успешно переведена на язык «{1}». Нажмите, чтобы открыть книгу</value></data>
+  <data name="Notification_Upload_ServiceUnavailable" xml:space="preserve"><value>Не удалось сохранить книгу. Перезапустите приложение и попробуйте снова.</value></data>
+  <data name="Notification_Upload_TimeoutTwoMinutes" xml:space="preserve"><value>Загрузка остановлена: превышено время ожидания (2 мин). Проверьте файл и попробуйте снова.</value></data>
+  <data name="Notification_Upload_ReadBookFileFailed" xml:space="preserve"><value>Не удалось прочитать файл книги.</value></data>
+  <data name="Notification_Upload_UnexpectedFailure" xml:space="preserve"><value>Извините, не удалось завершить загрузку. Попробуйте позже.</value></data>
+  <data name="Notification_Translation_PollTimeout24Hours" xml:space="preserve"><value>Перевод остановлен: превышено максимальное время ожидания (24 ч).</value></data>
+  <data name="Notification_Translation_UserStopped" xml:space="preserve"><value>Перевод отменён.</value></data>
+  <data name="Notification_Translation_OfflineNoInternet" xml:space="preserve"><value>К сожалению, нет связи с интернетом. Проверьте подключение или попробуйте позже.</value></data>
+  <data name="Notification_Translation_FailedGeneric" xml:space="preserve"><value>Извините, перевод книги не удался. Попробуйте ещё раз позже.</value></data>
+  <data name="A11y_Notification_Close" xml:space="preserve"><value>Закрыть уведомление</value></data>
+  <data name="TranslationApi_Error_Generic" xml:space="preserve"><value>Ошибка сервиса перевода.</value></data>
+  <data name="TranslationApi_Error_InvalidRequestEmptyText" xml:space="preserve"><value>Текст для перевода пуст.</value></data>
+  <data name="TranslationApi_Error_InvalidRequestMultipartExpected" xml:space="preserve"><value>Ожидается запрос multipart/form-data.</value></data>
+  <data name="TranslationApi_Error_InvalidRequestNoFile" xml:space="preserve"><value>Не передан файл книги.</value></data>
+  <data name="TranslationApi_Error_InvalidLanguageMissing" xml:space="preserve"><value>Не указаны языки исхода или перевода.</value></data>
+  <data name="TranslationApi_Error_UpstreamError" xml:space="preserve"><value>Сервис перевода отклонил запрос. Повторите попытку позже.</value></data>
+  <data name="TranslationApi_Error_InternalError" xml:space="preserve"><value>Внутренняя ошибка сервиса перевода. Повторите попытку позже.</value></data>
+  <data name="TranslationApi_Error_InternalErrorEmptyTranslation" xml:space="preserve"><value>Пустой ответ переводчика. Повторите попытку позже.</value></data>
+  <data name="TranslationApi_Error_JobNotFound" xml:space="preserve"><value>Задача перевода не найдена.</value></data>
+  <data name="TranslationApi_Error_ResultExpired" xml:space="preserve"><value>Срок хранения результата истёк. Запустите перевод книги снова.</value></data>
+  <data name="TranslationApi_Start_Rejected" xml:space="preserve"><value>Сервер перевода отклонил запрос. Проверьте файл книги и попробуйте ещё раз позже.</value></data>
+  <data name="TranslationApi_Start_FailedGeneric" xml:space="preserve"><value>Не удалось начать перевод книги. Попробуйте позже.</value></data>
+  <data name="TranslationApi_Start_ResponseIncomplete" xml:space="preserve"><value>В ответе сервера не хватает данных для продолжения.</value></data>
+  <data name="Translation_Msg_OfflineUnavailable" xml:space="preserve"><value>Перевод недоступен: нет нужной версии книги на устройстве или нет подключения к интернету.</value></data>
+  <data name="Translation_Msg_ProxyUnreachable" xml:space="preserve"><value>Не удалось связаться с сервисом перевода. Проверьте интернет и повторите попытку позже.</value></data>
+  <data name="Translation_Msg_OnlineFailure" xml:space="preserve"><value>Не удалось выполнить перевод предложения. Повторите попытку позже.</value></data>
+  <data name="Translation_Msg_CancelledOrTimeout" xml:space="preserve"><value>Перевод предложения отменён.</value></data>
+  <data name="Translation_Msg_ServerNotConfigured" xml:space="preserve"><value>Не задан адрес TranslationProxy. Укажите его в TranslationServerConfig.DefaultApiBaseUrl.</value></data>
+  <data name="Main_SearchNoBooksFound" xml:space="preserve"><value>Поиск применён. Книг по заданным условиям не найдено.</value></data>
+  <data name="Main_SearchApplied" xml:space="preserve"><value>Поиск применён</value></data>
+  <data name="Main_SearchResetDone" xml:space="preserve"><value>Сброс поиска применён</value></data>
+  <data name="Main_BookNotFoundMaybeRemoved" xml:space="preserve"><value>Эта книга не найдена в библиотеке (версия могла быть удалена).</value></data>
+  <data name="Main_LibraryEmptyHint" xml:space="preserve"><value>В библиотеке нет книг. Загрузите книгу — после чтения можно будет продолжить с последней позиции.</value></data>
+  <data name="Main_NoSavedReadingHint" xml:space="preserve"><value>Пока нет сохранённого прогресса. Откройте любую книгу и почитайте — позиция сохранится автоматически.</value></data>
+  <data name="Main_FileMissingForSavedPosition" xml:space="preserve"><value>Не удалось найти файл книги для сохранённой позиции.</value></data>
+  <data name="Main_DeleteBlockedTranslationRunning" xml:space="preserve"><value>Невозможно удалить книгу: идёт перевод этой книги. Повторите попытку после завершения перевода.</value></data>
+  <data name="Main_DeleteFailed" xml:space="preserve"><value>Не удалось удалить книгу. Попробуйте ещё раз.</value></data>
+  <data name="Main_CardDeletedSuccess" xml:space="preserve"><value>Версия книги удалена.</value></data>
+  <data name="Card_ContextMenuTitle" xml:space="preserve"><value>Действия с книгой</value></data>
+  <data name="Card_Action_Delete" xml:space="preserve"><value>Удалить</value></data>
+  <data name="Card_Action_Translate" xml:space="preserve"><value>Перевести</value></data>
+  <data name="Card_Action_ReadMark" xml:space="preserve"><value>Прочитано</value></data>
+  <data name="Card_Action_ReadUnmark" xml:space="preserve"><value>Убрать «Прочитано»</value></data>
+  <data name="Card_Action_FavMark" xml:space="preserve"><value>Любимое</value></data>
+  <data name="Card_Action_FavUnmark" xml:space="preserve"><value>Убрать «Любимое»</value></data>
+  <data name="Card_DeleteConfirmTitle" xml:space="preserve"><value>Удалить книгу</value></data>
+  <data name="Card_DeleteConfirmMessage" xml:space="preserve"><value>Удалить эту версию книги из библиотеки? Файл и данные этой версии будут удалены.</value></data>
+  <data name="Card_DeleteConfirmYes" xml:space="preserve"><value>Удалить</value></data>
+  <data name="Book_NoTitle" xml:space="preserve"><value>Без названия</value></data>
+  <data name="Book_UnknownAuthor" xml:space="preserve"><value>Неизвестен</value></data>
+  <data name="Reading_Error_LoadBookText" xml:space="preserve"><value>Не удалось загрузить текст книги.</value></data>
+  <data name="Reading_Error_OpenBookDetail" xml:space="preserve"><value>Не удалось открыть книгу. Проверьте файл или попробуйте снова.</value></data>
+  <data name="Reading_EndOfBook" xml:space="preserve"><value>Конец книги.</value></data>
+  <data name="Reading_Fallback_Fb2ZipMissing" xml:space="preserve"><value>Не удалось найти FB2 внутри zip.</value></data>
+  <data name="Reading_Fallback_UnsupportedFormat" xml:space="preserve"><value>Формат файла не поддерживается для чтения.</value></data>
+  <data name="Reading_Fallback_LoadTextFailed" xml:space="preserve"><value>Ошибка загрузки текста книги.</value></data>
+  <data name="Reading_GotoPage_ErrorBelowMinFormat" xml:space="preserve"><value>Ошибка: номер страницы не может быть меньше 1. Доступны страницы с 1 по {0}.</value></data>
+  <data name="Reading_GotoPage_ErrorNoSuchPageFormat" xml:space="preserve"><value>Ошибка: страницы «{0}» нет. В этой книге страницы с 1 по {1}.</value></data>
+  <data name="Reading_TocFallbackBodyTitle" xml:space="preserve"><value>Текст</value></data>
+  <data name="Reading_Error_ReadEpub" xml:space="preserve"><value>Ошибка чтения EPUB файла.</value></data>
+  <data name="Upload_Error_CopyFile" xml:space="preserve"><value>Не удалось скопировать файл.</value></data>
+  <data name="Upload_Error_TranslationFileNotFound" xml:space="preserve"><value>Файл перевода не найден.</value></data>
+  <data name="Upload_Error_TargetBookNotFound" xml:space="preserve"><value>Книга не найдена.</value></data>
+  <data name="Upload_Error_SaveFile" xml:space="preserve"><value>Не удалось сохранить файл.</value></data>
+  <data name="Fb2_Error_XmlParseFailed" xml:space="preserve"><value>Не удалось разобрать FB2 после попыток восстановления разметки.</value></data>
+  <data name="Fb2_Error_NoBookText" xml:space="preserve"><value>Не удалось найти текст книги</value></data>
+</root>

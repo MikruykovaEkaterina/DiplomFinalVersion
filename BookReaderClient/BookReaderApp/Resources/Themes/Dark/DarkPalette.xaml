@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="BookReaderApp.Resources.Themes.Dark.DarkPalette">
+
+  <Color x:Key="Primary">#4DD0C8</Color>
+
+  <Color x:Key="MainTextColor">#E8E8E8</Color>
+  <Color x:Key="HintTextColor">#9E9E9E</Color>
+  <Color x:Key="ActiveButtonBackgroundColor">#2A9D94</Color>
+  <Color x:Key="PrimaryBackground">#1A1A1C</Color>
+  <Color x:Key="LabelBackground">#3D6FB8</Color>
+  <Color x:Key="CardBorderColor">#444448</Color>
+  <Color x:Key="ActiveButtonBorderColor">#2A9D94</Color>
+  <Color x:Key="ActiveButtonTextColor">#0D1111</Color>
+  <Color x:Key="BookCardBackground">#242428</Color>
+
+  <Color x:Key="BookCardSurfaceRead">#1E2A2A</Color>
+  <Color x:Key="BookCardSurfaceFavorite">#2A2430</Color>
+  <Color x:Key="BookRibbonReadBackground">#1B4D48</Color>
+  <Color x:Key="BookRibbonReadText">#B2DFDB</Color>
+  <Color x:Key="BookRibbonFavoriteBackground">#4A2F55</Color>
+  <Color x:Key="BookRibbonFavoriteText">#E1BEE7</Color>
+  <Color x:Key="BookCardMenuButtonActiveTint">#3D4F56</Color>
+  <Color x:Key="DescriptionExpanderHeaderBackground">#2C3438</Color>
+  <Color x:Key="DescriptionExpanderHeaderBackgroundAccent">#3D4A52</Color>
+  <Color x:Key="ProgressColor">#4DD0C8</Color>
+
+  <Color x:Key="NotificationMessageTextColor">#A5D6A7</Color>
+  <Color x:Key="NotificationBackgroundColor">#3A3A3E</Color>
+
+  <Color x:Key="SecondaryTextColor">#B0B0B0</Color>
+  <Color x:Key="BookPageBackground">#121214</Color>
+  <Color x:Key="BottomPanelBackgroundColor">#1A1A1C</Color>
+  <Color x:Key="PrimaryColor">#4DD0C8</Color>
+  <Color x:Key="InactiveButtonBackgroundColor">#333338</Color>
+  <Color x:Key="InactiveButtonTextColor">#B0B0B0</Color>
+
+  <Shadow x:Key="CardShadow" Brush="#66000000" Offset="2,4" Radius="12" Opacity="1"/>
+
+  <Color x:Key="SnackbarErrorBackground">#4A1518</Color>
+  <Color x:Key="SnackbarErrorForeground">#FFCDD2</Color>
+  <Color x:Key="SnackbarWarningBackground">#4A3A10</Color>
+  <Color x:Key="SnackbarWarningForeground">#FFE082</Color>
+  <Color x:Key="SnackbarSuccessBackground">#1B3D24</Color>
+  <Color x:Key="SnackbarSuccessForeground">#C8E6C9</Color>
+  <Color x:Key="SnackbarInfoBackground">#2C2C30</Color>
+  <Color x:Key="SnackbarInfoForeground">#E0E0E0</Color>
+
+  <Color x:Key="TopBarIconTint">#E8E8E8</Color>
+
+  <Color x:Key="ModalScrimColor">#B3000000</Color>
+  <!-- Поля ввода совпадают с фоном экрана (не светлее подложки) -->
+  <Color x:Key="InputSurfaceBackground">#1A1A1C</Color>
+
+  <FileImageSource x:Key="UiIconArrowBack" File="Dark/arrow_back_dark.svg" />
+  <FileImageSource x:Key="UiIconMenuBook" File="Dark/menu_book_dark.svg" />
+  <FileImageSource x:Key="UiIconNote" File="Dark/note_dark.svg" />
+  <FileImageSource x:Key="UiIconHome" File="Dark/home_dark.svg" />
+  <FileImageSource x:Key="UiIconTextSettings" File="Dark/text_settings_dark.svg" />
+  <FileImageSource x:Key="UiIconSettings" File="Dark/settings_dark.svg" />
+  <FileImageSource x:Key="UiIconArrowLeft" File="Dark/arrow_left_dark.svg" />
+  <FileImageSource x:Key="UiIconArrowRight" File="Dark/arrow_right_dark.svg" />
+  <FileImageSource x:Key="UiIconLastBook" File="Dark/last_book_dark.svg" />
+  <FileImageSource x:Key="UiIconDownload" File="Dark/download_dark.svg" />
+  <FileImageSource x:Key="UiIconArrowDown" File="Dark/arrow_down_dark.svg" />
+  <FileImageSource x:Key="UiIconArrowUp" File="Dark/arrow_up_dark.svg" />
+  <FileImageSource x:Key="UiIconClose" File="Dark/close_dark.svg" />
+  <FileImageSource x:Key="UiIconMoreVertical" File="Dark/more_vertical_dark.svg" />
+  <FileImageSource x:Key="UiIconArrowDownLight" File="Dark/arrow_down_light_dark.svg" />
+  <FileImageSource x:Key="UiIconArrowUpLight" File="Dark/arrow_up_light_dark.svg" />
+  <FileImageSource x:Key="UiIconSearchLight" File="Dark/search_light_dark.svg" />
+  <FileImageSource x:Key="UiIconPlus" File="Dark/plus_dark.svg" />
+</ResourceDictionary>

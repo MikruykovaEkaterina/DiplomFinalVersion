@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:loc="clr-namespace:BookReaderApp.Localization"
+             xmlns:conv="clr-namespace:BookReaderApp.Converters"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="BookReaderApp.Views.BookCardView">
+
+  <ContentView.Resources>
+    <conv:BookLanguageIsoDisplayMultiConverter x:Key="BookLanguageIsoDisplayMultiConverter" />
+  </ContentView.Resources>
+
+  <!-- Margin карточки на обёртке; кнопка меню вне Border — не цепляет TouchBehavior и тап «открыть книгу».
+       Обе части в одной ячейке (0,0), иначе сетка может раздувать высоту. -->
+  <Grid Margin="{DynamicResource CardOuterMargin}"
+        RowDefinitions="*"
+        ColumnDefinitions="*">
+  <Border x:Name="CardBorder"
+          Grid.Row="0"
+          Grid.Column="0"
+          Stroke="{DynamicResource CardBorderColor}"
+          StrokeThickness="1"
+          Background="{DynamicResource BookCardBackground}"
+          StrokeShape="RoundRectangle 8"
+          Padding="{DynamicResource CardPadding}"
+          Margin="0"
+          Shadow="{DynamicResource CardShadow}">
+    <Border.Behaviors>
+      <!-- Касания идут на Border (анимация), кроме явно исключённых в коде: меню и блок «Описание». -->
+      <!-- PressedScale=1: иначе при скролле/переиспользовании ячейки анимация масштаба отменяется по CancellationToken и даёт TaskCanceledException (GestureManager.SetScale). -->
+      <!-- Command назначается в code-behind: TapGestureRecognizer с тем же Border часто не срабатывает при TouchBehavior. -->
+      <!-- PressedScale=1: при скролле CollectionView анимация масштаба может отменяться и давать TaskCanceledException. -->
+      <toolkit:TouchBehavior x:Name="CardTouchBehavior"
+                             ShouldMakeChildrenInputTransparent="True"
+                             DefaultAnimationDuration="90"
+                             DefaultAnimationEasing="{x:Static Easing.CubicOut}"
+                             PressedScale="1"
+                             PressedOpacity="0.88"
+                             DefaultOpacity="1" />
+    </Border.Behaviors>
+
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+          ColumnDefinitions="Auto,*"
+          ColumnSpacing="{DynamicResource CardColumnSpacing}"
+          RowSpacing="{DynamicResource CardRowSpacing}">
+
+      <!-- Ленты статуса: по центру сверху; при «оба» — две метки рядом, фон карточки по приоритету «Любимое». -->
+      <HorizontalStackLayout Grid.Row="0"
+                             Grid.ColumnSpan="2"
+                             HorizontalOptions="Center"
+                             Spacing="8"
+                             IsVisible="{Binding HasStatusRibbons}"
+                             Margin="0,0,0,4">
+        <Border IsVisible="{Binding ShowReadRibbon}"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 10"
+                Padding="10,4"
+                BackgroundColor="{DynamicResource BookRibbonReadBackground}">
+          <Label Text="{loc:Translate BookStatus_Read}"
+                 FontSize="{DynamicResource MainFontSize}"
+                 TextColor="{DynamicResource BookRibbonReadText}"
+                 VerticalOptions="Center" />
+        </Border>
+        <Border IsVisible="{Binding ShowFavoriteRibbon}"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 10"
+                Padding="10,4"
+                BackgroundColor="{DynamicResource BookRibbonFavoriteBackground}">
+          <Label Text="{loc:Translate BookReaction_Favorite}"
+                 FontSize="{DynamicResource MainFontSize}"
+                 TextColor="{DynamicResource BookRibbonFavoriteText}"
+                 VerticalOptions="Center" />
+        </Border>
+      </HorizontalStackLayout>
+
+      <Label Grid.Row="1"
+             Grid.ColumnSpan="2"
+             Text="{Binding Title}"
+             Style="{DynamicResource BookTitleLabelStyle}"
+             LineBreakMode="WordWrap"
+             VerticalOptions="Center"
+             Margin="0,0,28,0" />
+
+      <!-- Строка обложки: при отсутствии обложки строка скрыта целиком — без лишнего RowSpacing. -->
+      <Grid x:Name="CoverRowHost"
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            Margin="0,8,0,8"
+            IsVisible="{Binding HasCover}">
+        <Image x:Name="CoverImage"
+               Aspect="AspectFill"
+               HeightRequest="180"
+               Source="{Binding CoverImage}" />
+      </Grid>
+
+      <Label Grid.Row="3" Grid.ColumnSpan="2">
+        <Label.FormattedText>
+          <FormattedString>
+            <Span Text="{loc:Translate AuthorLabel}" Style="{DynamicResource BookMetaLabelStyle}" />
+            <Span Text=" " />
+            <Span Text="{Binding Author}" Style="{DynamicResource BookMetaValueStyle}" />
+          </FormattedString>
+        </Label.FormattedText>
+        <Label.Triggers>
+          <!-- Без обложки строка обложки скрыта, но между строками 0 и 2 остаётся два RowSpacing (4+4).
+               Чтобы визуально совпадало с остальными парами строк (один интервал 4), подтягиваем на один шаг. -->
+          <DataTrigger TargetType="Label"
+                       Binding="{Binding HasCover}"
+                       Value="False">
+            <Setter Property="Margin" Value="0,-4,0,0" />
+          </DataTrigger>
+        </Label.Triggers>
+      </Label>
+
+      <Label Grid.Row="4" Grid.ColumnSpan="2">
+        <Label.FormattedText>
+          <FormattedString>
+            <Span Text="{loc:Translate PagesLabel}" Style="{DynamicResource BookMetaLabelStyle}" />
+            <Span Text=" " />
+            <Span Text="{Binding Pages}" Style="{DynamicResource BookMetaValueStyle}" />
+          </FormattedString>
+        </Label.FormattedText>
+      </Label>
+
+      <Label Grid.Row="5" Grid.ColumnSpan="2">
+        <Label.FormattedText>
+          <FormattedString>
+            <Span Text="{loc:Translate ProgressLabel}" Style="{DynamicResource BookMetaLabelStyle}" />
+            <Span Text=" " />
+            <Span Text="{Binding Progress, StringFormat='{}{0:P0}'}" Style="{DynamicResource BookMetaValueStyle}" />
+          </FormattedString>
+        </Label.FormattedText>
+      </Label>
+
+      <Label Grid.Row="6" Grid.ColumnSpan="2">
+        <Label.FormattedText>
+          <FormattedString>
+            <Span Text="{loc:Translate DateAddedLabel}" Style="{DynamicResource BookMetaLabelStyle}" />
+            <Span Text=" " />
+            <Span Text="{Binding DateAdded, StringFormat='{}{0:dd.MM.yyyy}'}" Style="{DynamicResource BookMetaValueStyle}" />
+          </FormattedString>
+        </Label.FormattedText>
+      </Label>
+
+      <Label Grid.Row="7" Grid.ColumnSpan="2">
+        <Label.FormattedText>
+          <FormattedString>
+            <Span Text="{loc:Translate LastOpenedLabel}" Style="{DynamicResource BookMetaLabelStyle}" />
+            <Span Text=" " />
+            <Span Text="{Binding LastOpened, StringFormat='{}{0:dd.MM.yyyy}'}" Style="{DynamicResource BookMetaValueStyle}" />
+          </FormattedString>
+        </Label.FormattedText>
+      </Label>
+
+      <HorizontalStackLayout Grid.Row="8"
+                             Grid.ColumnSpan="2"
+                             Spacing="4">
+        <Label Text="{loc:Translate LanguageLabel}"
+               Style="{DynamicResource BookMetaLabelStyle}"
+               VerticalOptions="Center" />
+        <Label Style="{DynamicResource BookMetaValueStyle}"
+               VerticalOptions="Center">
+          <Label.Text>
+            <MultiBinding Converter="{StaticResource BookLanguageIsoDisplayMultiConverter}">
+              <Binding Path="Language" />
+              <Binding Path="CurrentCulture"
+                       Source="{x:Static loc:LocalizationResourceManager.Instance}" />
+            </MultiBinding>
+          </Label.Text>
+        </Label>
+      </HorizontalStackLayout>
+
+      <toolkit:Expander x:Name="DescriptionExpander"
+                        Grid.Row="9"
+                        Grid.ColumnSpan="2"
+                        IsExpanded="False">
+        <toolkit:Expander.Header>
+          <!-- Фон и жест на Grid; подпись/иконка с InputTransparent (и в коде) — не перехватывают тап. -->
+          <Border StrokeThickness="0"
+                  StrokeShape="RoundRectangle 8"
+                  Padding="0">
+            <Grid Padding="10,10"
+                  ColumnDefinitions="*,Auto"
+                  MinimumHeightRequest="{DynamicResource UiBookCardExpanderHeaderMinHeight}"
+                  BackgroundColor="{DynamicResource DescriptionExpanderHeaderBackground}">
+              <Grid.Triggers>
+                <!-- На карточках с «Прочитано»/«Любимое» фон карточки тонирован — усиливаем зону «Описание». -->
+                <DataTrigger TargetType="Grid"
+                             Binding="{Binding MenuButtonHighlighted}"
+                             Value="True">
+                  <Setter Property="BackgroundColor" Value="{DynamicResource DescriptionExpanderHeaderBackgroundAccent}" />
+                </DataTrigger>
+                <DataTrigger TargetType="Grid"
+                             Binding="{Binding MenuButtonHighlighted}"
+                             Value="False">
+                  <Setter Property="BackgroundColor" Value="{DynamicResource DescriptionExpanderHeaderBackground}" />
+                </DataTrigger>
+              </Grid.Triggers>
+              <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnDescriptionHeaderTapped" />
+              </Grid.GestureRecognizers>
+              <Label x:Name="DescriptionHeaderText"
+                     Grid.Column="0"
+                     Text="{loc:Translate DescriptionLabel}"
+                     Style="{DynamicResource BookMetaLabelStyle}"
+                     VerticalOptions="Center"
+                     InputTransparent="True">
+                <Label.Triggers>
+                  <DataTrigger TargetType="Label"
+                               Binding="{Binding MenuButtonHighlighted}"
+                               Value="True">
+                    <Setter Property="TextColor" Value="{DynamicResource MainTextColor}" />
+                  </DataTrigger>
+                  <DataTrigger TargetType="Label"
+                               Binding="{Binding MenuButtonHighlighted}"
+                               Value="False">
+                    <Setter Property="TextColor" Value="{DynamicResource HintTextColor}" />
+                  </DataTrigger>
+                </Label.Triggers>
+              </Label>
+              <Image x:Name="DescriptionHeaderIcon"
+                     Grid.Column="1"
+                     Source="{DynamicResource UiIconArrowDown}"
+                     WidthRequest="{DynamicResource UiInlineIconSize}"
+                     HeightRequest="{DynamicResource UiInlineIconSize}"
+                     HorizontalOptions="End"
+                     VerticalOptions="Center"
+                     InputTransparent="True" />
+            </Grid>
+          </Border>
+        </toolkit:Expander.Header>
+
+        <Label Text="{Binding Description}"
+               FontSize="{DynamicResource MainFontSize}"
+               TextColor="{DynamicResource MainTextColor}"
+               LineBreakMode="WordWrap"
+               Margin="0,4,0,0" />
+      </toolkit:Expander>
+
+    </Grid>
+  </Border>
+
+  <ImageButton x:Name="MenuButton"
+                 Grid.Row="0"
+                 Grid.Column="0"
+                 ZIndex="10"
+                 Style="{StaticResource ChromeImageButtonStyle}"
+                 Source="{DynamicResource UiIconMoreVertical}"
+                 WidthRequest="{DynamicResource UiChromeIconSize}"
+                 HeightRequest="{DynamicResource UiChromeIconSize}"
+                 HorizontalOptions="End"
+                 VerticalOptions="Start"
+                 Margin="0,12,12,0"
+                 Aspect="AspectFit"
+                 Clicked="OnMenuClicked" />
+  </Grid>
+</ContentView>

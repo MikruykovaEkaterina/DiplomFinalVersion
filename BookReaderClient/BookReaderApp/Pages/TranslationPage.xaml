@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:BookReaderApp.ViewModels"
+             xmlns:conv="clr-namespace:BookReaderApp.Converters"
+             xmlns:loc="clr-namespace:BookReaderApp.Localization"
+             x:Class="BookReaderApp.TranslationPage"
+             BackgroundColor="{DynamicResource PrimaryBackground}">
+
+  <ContentPage.Resources>
+    <conv:InvertedBoolConverter x:Key="InvertedBoolConverter"/>
+  </ContentPage.Resources>
+
+  <Grid RowDefinitions="Auto,*">
+    <Grid Grid.Row="0" Padding="15" BackgroundColor="{DynamicResource PrimaryBackground}"
+          ColumnDefinitions="Auto,*,Auto" HeightRequest="60">
+      <ImageButton Grid.Column="0"
+                   Style="{StaticResource ChromeImageButtonStyle}"
+                   Source="{DynamicResource UiIconArrowBack}"
+                   WidthRequest="{DynamicResource UiChromeIconSize}"
+                   HeightRequest="{DynamicResource UiChromeIconSize}"
+                   Aspect="AspectFit"
+                   ToolTipProperties.Text="{loc:Translate Reading_Chrome_Back}"
+                   Clicked="OnBackClicked" />
+      <Label Grid.Column="1" Text="{loc:Translate TranslationTitle}" Style="{DynamicResource AppTitleStyle}"
+             HorizontalOptions="Center" VerticalOptions="Center"/>
+      <BoxView Grid.Column="2" WidthRequest="50" HeightRequest="1" BackgroundColor="Transparent"/>
+    </Grid>
+
+    <VerticalStackLayout Grid.Row="1" Padding="20" Spacing="20" VerticalOptions="Center"
+                         BackgroundColor="{DynamicResource PrimaryBackground}">
+      <VerticalStackLayout x:Name="LanguageSelectionContainer" Spacing="10"
+                           IsVisible="{Binding IsTranslating, Converter={StaticResource InvertedBoolConverter}}">
+        <Label Text="{Binding BookTitleLine}"
+               IsVisible="{Binding HasBookTitle}"
+               Style="{DynamicResource BookTitleLabelStyle}"
+               HorizontalTextAlignment="Center"
+               Margin="0,0,0,8"/>
+        <Label Text="{loc:Translate TranslationTargetLanguageLabel}" TextColor="{DynamicResource MainTextColor}"
+               FontSize="{DynamicResource ButtonFontSize}" />
+        <Border Stroke="{DynamicResource CardBorderColor}"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 6"
+                Padding="12,10"
+                BackgroundColor="{DynamicResource PrimaryBackground}">
+          <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+            <Label Grid.Column="0"
+                   Text="{Binding SelectedTargetLanguageDisplay}"
+                   VerticalOptions="Center"
+                   LineBreakMode="TailTruncation"
+                   FontSize="{DynamicResource ButtonFontSize}"
+                   TextColor="{DynamicResource MainTextColor}" />
+            <Image Grid.Column="1"
+                   Source="{DynamicResource UiIconArrowDownLight}"
+                   WidthRequest="{DynamicResource UiChromeIconSize}"
+                   HeightRequest="{DynamicResource UiChromeIconSize}"
+                   VerticalOptions="Center" />
+          </Grid>
+          <Border.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnTranslationTargetLanguageTapped" />
+          </Border.GestureRecognizers>
+        </Border>
+      </VerticalStackLayout>
+
+      <Button x:Name="StartTranslationButton" Text="{loc:Translate TranslationButtonLabel}"
+              FontSize="{DynamicResource ButtonFontSize}"
+              IsEnabled="{Binding IsLanguageSelected}"
+              IsVisible="{Binding IsTranslating, Converter={StaticResource InvertedBoolConverter}}"
+              Clicked="OnStartTranslationClicked">
+        <Button.Style>
+          <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{DynamicResource InactiveButtonBackgroundColor}" />
+            <Setter Property="TextColor" Value="{DynamicResource InactiveButtonTextColor}" />
+            <Style.Triggers>
+              <DataTrigger TargetType="Button"
+                           Binding="{Binding IsLanguageSelected}"
+                           Value="True">
+                <Setter Property="BackgroundColor" Value="{DynamicResource ActiveButtonBackgroundColor}" />
+                <Setter Property="TextColor" Value="{DynamicResource ActiveButtonTextColor}" />
+              </DataTrigger>
+            </Style.Triggers>
+          </Style>
+        </Button.Style>
+      </Button>
+
+      <VerticalStackLayout x:Name="ProgressContainer" IsVisible="{Binding IsTranslating}" Spacing="10">
+        <Label Text="{Binding ProgressText}" HorizontalOptions="Center" FontSize="{DynamicResource ButtonFontSize}"
+               TextColor="{DynamicResource MainTextColor}"/>
+        <Label Text="{Binding ProgressNetworkNote}"
+               IsVisible="{Binding HasProgressNetworkNote}"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"
+               FontSize="{DynamicResource LabelFontSize}"
+               TextColor="{DynamicResource HintTextColor}"
+               Margin="0,-4,0,0"/>
+        <ProgressBar Progress="{Binding TranslationProgress}" ProgressColor="{DynamicResource ProgressColor}"/>
+        <Label Text="{Binding TranslationProgressPercent}" HorizontalOptions="Center"
+               FontSize="{DynamicResource LabelFontSize}"/>
+        <Button Text="{loc:Translate TranslationCancelButtonLabel}"
+                Clicked="OnCancelTranslationClicked"
+                FontSize="{DynamicResource ButtonFontSize}"
+                Margin="0,4,0,0"
+                BackgroundColor="{DynamicResource InactiveButtonBackgroundColor}"
+                TextColor="{DynamicResource InactiveButtonTextColor}"/>
+        <Label Text="{loc:Translate AfterTranslationHint}"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"
+               FontSize="{DynamicResource LabelFontSize}"
+               TextColor="{DynamicResource HintTextColor}"
+               Margin="0,8,0,0"/>
+      </VerticalStackLayout>
+    </VerticalStackLayout>
+  </Grid>
+</ContentPage>

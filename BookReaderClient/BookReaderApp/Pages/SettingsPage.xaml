@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+
+             xmlns:loc="clr-namespace:BookReaderApp.Localization"
+
+             x:Class="BookReaderApp.SettingsPage"
+
+             Title="{loc:Translate InterfaceSettingsTitle}"
+
+             BackgroundColor="{DynamicResource PrimaryBackground}">
+
+
+
+  <Grid RowDefinitions="Auto,*" x:Name="MainLayer">
+
+    <Grid Grid.Row="0"
+
+          Padding="15,10,15,5"
+
+          BackgroundColor="{DynamicResource PrimaryBackground}">
+
+      <Grid.ColumnDefinitions>
+
+        <ColumnDefinition Width="Auto"/>
+
+        <ColumnDefinition Width="*"/>
+
+        <ColumnDefinition Width="Auto"/>
+
+      </Grid.ColumnDefinitions>
+
+
+
+      <ImageButton Grid.Column="0"
+
+                   Style="{StaticResource ChromeImageButtonStyle}"
+
+                   Source="{DynamicResource UiIconArrowBack}"
+
+                   WidthRequest="{DynamicResource UiChromeIconSize}"
+
+                   HeightRequest="{DynamicResource UiChromeIconSize}"
+
+                   Aspect="AspectFit"
+
+                   Clicked="OnBackClicked" />
+
+
+
+      <Label Grid.Column="1"
+
+             Text="{loc:Translate InterfaceSettingsTitle}"
+
+             Style="{DynamicResource AppTitleStyle}"
+
+             VerticalOptions="Center"
+
+             HorizontalOptions="Center" />
+
+
+
+      <ImageButton Grid.Column="2"
+
+                   Style="{StaticResource ChromeImageButtonStyle}"
+
+                   Source="{DynamicResource UiIconHome}"
+
+                   WidthRequest="{DynamicResource UiChromeIconSize}"
+
+                   HeightRequest="{DynamicResource UiChromeIconSize}"
+
+                   Aspect="AspectFit"
+
+                   Clicked="OnHomeClicked" />
+
+    </Grid>
+
+
+
+    <ScrollView Grid.Row="1"
+
+                BackgroundColor="{DynamicResource PrimaryBackground}">
+
+      <VerticalStackLayout Padding="20" Spacing="25" VerticalOptions="Center"
+
+                           BackgroundColor="{DynamicResource PrimaryBackground}">
+
+
+
+        <Frame BorderColor="{DynamicResource CardBorderColor}"
+
+               Background="{DynamicResource BookCardBackground}"
+
+               Padding="15"
+
+               HasShadow="False"
+
+               CornerRadius="10">
+
+          <VerticalStackLayout Spacing="10">
+
+            <Label Text="{loc:Translate InterfaceThemeLabel}"
+
+                   FontSize="{DynamicResource MainFontSize}"
+
+                   TextColor="{DynamicResource MainTextColor}" />
+
+            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+
+              <Button Grid.Column="0"
+
+                      Text="&lt;"
+
+                      FontSize="{DynamicResource ButtonFontSize}"
+
+                      TextColor="{DynamicResource ActiveButtonTextColor}"
+
+                      BackgroundColor="{DynamicResource ActiveButtonBackgroundColor}"
+
+                      Clicked="OnThemePreviousClicked" />
+
+              <Label Grid.Column="1"
+
+                     Text="{Binding ThemeDisplayText}"
+
+                     TextColor="{DynamicResource MainTextColor}"
+
+                     HorizontalOptions="Center"
+
+                     VerticalOptions="Center"
+
+                     FontSize="{DynamicResource MainFontSize}" />
+
+              <Button Grid.Column="2"
+
+                      Text="&gt;"
+
+                      FontSize="{DynamicResource ButtonFontSize}"
+
+                      TextColor="{DynamicResource ActiveButtonTextColor}"
+
+                      BackgroundColor="{DynamicResource ActiveButtonBackgroundColor}"
+
+                      Clicked="OnThemeNextClicked" />
+
+            </Grid>
+
+          </VerticalStackLayout>
+
+        </Frame>
+
+
+
+        <Frame BorderColor="{DynamicResource CardBorderColor}"
+
+               Background="{DynamicResource BookCardBackground}"
+
+               Padding="15"
+
+               HasShadow="False"
+
+               CornerRadius="10">
+
+          <VerticalStackLayout Spacing="10">
+
+            <Label Text="{loc:Translate InterfaceFontSizeLabel}"
+
+                   FontSize="{DynamicResource MainFontSize}"
+
+                   TextColor="{DynamicResource MainTextColor}" />
+
+            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+
+              <Button Grid.Column="0"
+
+                      Text="&lt;"
+
+                      FontSize="{DynamicResource ButtonFontSize}"
+
+                      TextColor="{DynamicResource ActiveButtonTextColor}"
+
+                      x:Name="DecreaseButton"
+
+                      BackgroundColor="{DynamicResource ActiveButtonBackgroundColor}"
+
+                      IsEnabled="{Binding CanDecreaseFont}"
+
+                      Clicked="OnDecreaseFontClicked" />
+
+              <Label Grid.Column="1"
+
+                     Text="{Binding FontSummaryText}"
+
+                     TextColor="{DynamicResource MainTextColor}"
+
+                     HorizontalOptions="Center"
+
+                     VerticalOptions="Center"
+
+                     FontSize="{DynamicResource MainFontSize}" />
+
+              <Button Grid.Column="2"
+
+                      Text="&gt;"
+
+                      FontSize="{DynamicResource ButtonFontSize}"
+
+                      TextColor="{DynamicResource ActiveButtonTextColor}"
+
+                      x:Name="IncreaseButton"
+
+                      BackgroundColor="{DynamicResource ActiveButtonBackgroundColor}"
+
+                      IsEnabled="{Binding CanIncreaseFont}"
+
+                      Clicked="OnIncreaseFontClicked" />
+
+            </Grid>
+
+          </VerticalStackLayout>
+
+        </Frame>
+
+
+
+        <Frame BorderColor="{DynamicResource CardBorderColor}"
+
+               Background="{DynamicResource BookCardBackground}"
+
+               Padding="15"
+
+               CornerRadius="10"
+
+               HasShadow="False">
+
+          <VerticalStackLayout Spacing="10">
+
+            <Label Text="{loc:Translate Interface_Language_Setting}"
+
+                   FontSize="{DynamicResource MainFontSize}"
+
+                   TextColor="{DynamicResource MainTextColor}" />
+
+            <Border Stroke="{DynamicResource CardBorderColor}"
+
+                    StrokeShape="RoundRectangle 8"
+
+                    Padding="12,10">
+
+              <Border.GestureRecognizers>
+
+                <TapGestureRecognizer Tapped="OnLanguageRowTapped" />
+
+              </Border.GestureRecognizers>
+
+              <Grid ColumnDefinitions="*,Auto">
+
+                <Label Text="{Binding LanguageSummaryText}"
+
+                       FontSize="{DynamicResource MainFontSize}"
+
+                       VerticalOptions="Center"
+
+                       TextColor="{DynamicResource MainTextColor}" />
+
+                <Label Grid.Column="1"
+
+                       Text="›"
+
+                       FontSize="{DynamicResource ButtonFontSize}"
+
+                       VerticalOptions="Center"
+
+                       TextColor="{DynamicResource HintTextColor}" />
+
+              </Grid>
+
+            </Border>
+
+          </VerticalStackLayout>
+
+        </Frame>
+
+
+
+      </VerticalStackLayout>
+
+    </ScrollView>
+
+  </Grid>
+
+</ContentPage>
+

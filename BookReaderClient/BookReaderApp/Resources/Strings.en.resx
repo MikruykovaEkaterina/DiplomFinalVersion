@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AfterUploadHint" xml:space="preserve"><value>We'll notify you when the book has finished uploading.</value></data>
+  <data name="AppTitle" xml:space="preserve"><value>Application title</value></data>
+  <data name="AuthorLabel" xml:space="preserve"><value>Author:</value></data>
+  <data name="BookLabel" xml:space="preserve"><value>Book</value></data>
+  <data name="BookLanguage_English" xml:space="preserve"><value>English</value></data>
+  <data name="BookLanguage_None" xml:space="preserve"><value>Not selected</value></data>
+  <data name="BookLanguage_Russian" xml:space="preserve"><value>Russian</value></data>
+  <data name="Upload_Progress_Format" xml:space="preserve"><value>Uploading book in {0}…</value></data>
+  <data name="Upload_Error_LanguageNotSelected" xml:space="preserve"><value>No language selected</value></data>
+  <data name="Translation_Progress_TargetOnly" xml:space="preserve"><value>Translating the book into {0}</value></data>
+  <data name="Translation_Progress_WithTitleTarget" xml:space="preserve"><value>Translating «{0}» into {1}</value></data>
+  <data name="Translation_Progress_TitleOnly" xml:space="preserve"><value>Translating «{0}»</value></data>
+  <data name="BookReaction_Favorite" xml:space="preserve"><value>Favorite</value></data>
+  <data name="BookReaction_None" xml:space="preserve"><value>Not set</value></data>
+  <data name="BookReaction_Unrated" xml:space="preserve"><value>Unrated</value></data>
+  <data name="BookSort_DateNew" xml:space="preserve"><value>By date (newest)</value></data>
+  <data name="BookSort_DateOld" xml:space="preserve"><value>By date (oldest)</value></data>
+  <data name="BookSort_SizeAsc" xml:space="preserve"><value>By size (ascending)</value></data>
+  <data name="BookSort_SizeDesc" xml:space="preserve"><value>By size (descending)</value></data>
+  <data name="BookSort_TitleAsc" xml:space="preserve"><value>By title (A–Z)</value></data>
+  <data name="BookSort_TitleDesc" xml:space="preserve"><value>By title (Z–A)</value></data>
+  <data name="BookStatus_InProgress" xml:space="preserve"><value>In progress</value></data>
+  <data name="BookStatus_New" xml:space="preserve"><value>New</value></data>
+  <data name="BookStatus_None" xml:space="preserve"><value>Not set</value></data>
+  <data name="BookStatus_Read" xml:space="preserve"><value>Read</value></data>
+  <data name="DateAddedLabel" xml:space="preserve"><value>Date added:</value></data>
+  <data name="DescriptionLabel" xml:space="preserve"><value>Description</value></data>
+  <data name="GoTopLabel" xml:space="preserve"><value>↑ Top</value></data>
+  <data name="InterfaceFontSizeLabel" xml:space="preserve"><value>Interface text size</value></data>
+  <data name="InterfaceSettingsTitle" xml:space="preserve"><value>Interface settings</value></data>
+  <data name="InterfaceThemeLabel" xml:space="preserve"><value>Interface theme</value></data>
+  <data name="LanguageLabel" xml:space="preserve"><value>Language:</value></data>
+  <data name="LastOpenedLabel" xml:space="preserve"><value>Last opened:</value></data>
+  <data name="PagesLabel" xml:space="preserve"><value>Page count:</value></data>
+  <data name="ProgressLabel" xml:space="preserve"><value>Reading progress:</value></data>
+  <data name="SearchButtonLabel" xml:space="preserve"><value>Search</value></data>
+  <data name="Search_CollapseSearch" xml:space="preserve"><value>Collapse search</value></data>
+  <data name="SelectLanguageTitle" xml:space="preserve"><value>Choose language</value></data>
+  <data name="SettingsLabel" xml:space="preserve"><value>Settings</value></data>
+  <data name="UploadButton" xml:space="preserve"><value>Upload</value></data>
+  <data name="UploadButtonLabel" xml:space="preserve"><value>Upload</value></data>
+  <data name="UploadLanguageLabel" xml:space="preserve"><value>Upload language:</value></data>
+  <data name="UploadTitle" xml:space="preserve"><value>Upload book</value></data>
+  <data name="TranslationTitle" xml:space="preserve"><value>Translate book</value></data>
+  <data name="TranslationTargetLanguageLabel" xml:space="preserve"><value>Translation language:</value></data>
+  <data name="TranslationButtonLabel" xml:space="preserve"><value>Start translation</value></data>
+  <data name="TranslationCancelButtonLabel" xml:space="preserve"><value>Cancel translation</value></data>
+  <data name="AfterTranslationHint" xml:space="preserve"><value>We'll notify you when translation is ready.</value></data>
+  <data name="TranslationNotImplementedHint" xml:space="preserve"><value>Starting translation will be added in a later release.</value></data>
+  <data name="TranslationActiveJobRunningMessage" xml:space="preserve"><value>Another book is already being translated. Wait until it finishes or cancel it, then you can translate the selected book.</value></data>
+  <data name="TranslationBookPollNetworkNote" xml:space="preserve"><value>No connection to the translation server — cannot refresh progress. The server-side task is saved; when you're online we'll poll status again. Below is the last known progress.</value></data>
+  <data name="Common_OK" xml:space="preserve"><value>OK</value></data>
+  <data name="Common_Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="Common_Error" xml:space="preserve"><value>Error</value></data>
+  <data name="Common_Wait" xml:space="preserve"><value>Please wait</value></data>
+  <data name="Alert_BookNotFound" xml:space="preserve"><value>Book not found in the library.</value></data>
+  <data name="Alert_LocalBookFileMissing" xml:space="preserve"><value>Local book file not found. Add the book with a file on the device.</value></data>
+  <data name="Alert_OpenBookFailed" xml:space="preserve"><value>Could not open the book.</value></data>
+  <data name="Alert_LastBookMissing" xml:space="preserve"><value>Saved reading position refers to a book that is no longer in the library. Open a book from the list.</value></data>
+  <data name="Reading_WaitPages" xml:space="preserve"><value>Still calculating pages…</value></data>
+  <data name="Reading_InvalidPageNumberInput" xml:space="preserve"><value>Invalid input: enter a whole page number (digits only).</value></data>
+  <data name="Reading_TocUnavailable" xml:space="preserve"><value>Table of contents is unavailable for this book.</value></data>
+  <data name="Reading_NotesComingSoon" xml:space="preserve"><value>Notes will be available in a future update.</value></data>
+  <data name="Notes_AddNoteSoonTitle" xml:space="preserve"><value>Add note</value></data>
+  <data name="Notes_AddNoteSoonBody" xml:space="preserve"><value>Note creation will be available here.</value></data>
+  <data name="Notes_ScreenTitle" xml:space="preserve"><value>Book notes</value></data>
+  <data name="Notes_MyNotes" xml:space="preserve"><value>My notes</value></data>
+  <data name="Notes_AddNote" xml:space="preserve"><value>Add note</value></data>
+  <data name="Notes_PageFormat" xml:space="preserve"><value>p. {0}</value></data>
+  <data name="Notes_Untitled" xml:space="preserve"><value>Untitled</value></data>
+  <data name="Notes_EditorTitle" xml:space="preserve"><value>New note</value></data>
+  <data name="Notes_TitleField" xml:space="preserve"><value>Title</value></data>
+  <data name="Notes_TitlePlaceholder" xml:space="preserve"><value>Short note title</value></data>
+  <data name="Notes_TitleRequiredTitle" xml:space="preserve"><value>Title required</value></data>
+  <data name="Notes_TitleRequiredMessage" xml:space="preserve"><value>Enter a title to save the note.</value></data>
+  <data name="Notes_CommentPlaceholder" xml:space="preserve"><value>Comment (optional)</value></data>
+  <data name="Notes_Save" xml:space="preserve"><value>Save</value></data>
+  <data name="Notes_VersionUnavailable" xml:space="preserve"><value>This book version is unavailable (file missing).</value></data>
+  <data name="Notes_NoNotesYet" xml:space="preserve"><value>No notes yet.</value></data>
+  <data name="Notes_SavedSuccess" xml:space="preserve"><value>Note saved.</value></data>
+  <data name="Notes_DeleteConfirmTitle" xml:space="preserve"><value>Delete this note?</value></data>
+  <data name="Notes_DeleteConfirmMessage" xml:space="preserve"><value>This can't be undone.</value></data>
+  <data name="Notes_DeleteConfirmAction" xml:space="preserve"><value>Delete</value></data>
+  <data name="Notes_DeletedSuccess" xml:space="preserve"><value>Note deleted.</value></data>
+  <data name="Search_Toast_ResetDone" xml:space="preserve"><value>All search filters were reset.</value></data>
+  <data name="Search_Toast_ResultsOnMain" xml:space="preserve"><value>Search results will appear on the home screen.</value></data>
+  <data name="Reading_JumpPageTitle" xml:space="preserve"><value>Go to page</value></data>
+  <data name="Reading_JumpPagePrompt" xml:space="preserve"><value>Enter a number from 1 to {0}</value></data>
+  <data name="Reading_JumpPageConfirm" xml:space="preserve"><value>Go</value></data>
+  <data name="Reading_Chrome_Back" xml:space="preserve"><value>Back</value></data>
+  <data name="Reading_Chrome_Toc" xml:space="preserve"><value>Contents</value></data>
+  <data name="Reading_Chrome_Notes" xml:space="preserve"><value>Notes</value></data>
+  <data name="Reading_Chrome_Home" xml:space="preserve"><value>Home</value></data>
+  <data name="Reading_Chrome_TextSettings" xml:space="preserve"><value>Text settings</value></data>
+  <data name="Reading_Chrome_AppSettings" xml:space="preserve"><value>Settings</value></data>
+  <data name="Reading_TocTitle" xml:space="preserve"><value>Contents</value></data>
+  <data name="Reading_OpeningBook" xml:space="preserve"><value>Opening book…</value></data>
+  <data name="Reading_OpeningNotePosition" xml:space="preserve"><value>Opening text from your note…</value></data>
+  <data name="Reading_ApplyingTextSettings" xml:space="preserve"><value>Applying text settings…</value></data>
+  <data name="Reading_PageProgressFormat" xml:space="preserve"><value>{0} of {1}</value></data>
+  <data name="Reading_ChapterNumberFormat" xml:space="preserve"><value>Chapter {0}</value></data>
+  <data name="Reading_Title" xml:space="preserve"><value>Reading</value></data>
+  <data name="Search_Reset" xml:space="preserve"><value>Reset search</value></data>
+  <data name="Search_Filter_Title" xml:space="preserve"><value>Title:</value></data>
+  <data name="Search_Filter_Author" xml:space="preserve"><value>Author:</value></data>
+  <data name="Search_Placeholder_Title" xml:space="preserve"><value>Enter title</value></data>
+  <data name="Search_Placeholder_Author" xml:space="preserve"><value>Enter author</value></data>
+  <data name="Search_Filter_BookSize" xml:space="preserve"><value>Book size (pages):</value></data>
+  <data name="Search_Placeholder_PageFrom" xml:space="preserve"><value>from</value></data>
+  <data name="Search_Placeholder_PageTo" xml:space="preserve"><value>to</value></data>
+  <data name="Search_Filter_Status" xml:space="preserve"><value>Status:</value></data>
+  <data name="Search_Filter_Reaction" xml:space="preserve"><value>Reaction:</value></data>
+  <data name="Search_Filter_Sort" xml:space="preserve"><value>Sort:</value></data>
+  <data name="Search_ApplyResults" xml:space="preserve"><value>Show search results</value></data>
+  <data name="Picker_SelectStatus" xml:space="preserve"><value>Choose status</value></data>
+  <data name="Picker_SelectReaction" xml:space="preserve"><value>Choose reaction</value></data>
+  <data name="Picker_SelectSort" xml:space="preserve"><value>Choose sort method</value></data>
+  <data name="Search_Page_Header" xml:space="preserve"><value>Search &amp; filters</value></data>
+  <data name="Search_Back" xml:space="preserve"><value>← Back</value></data>
+  <data name="Search_Reset_Button" xml:space="preserve"><value>Reset search</value></data>
+  <data name="Search_Show_Button" xml:space="preserve"><value>Show results</value></data>
+  <data name="Search_Toast_Empty" xml:space="preserve"><value>Enter at least one search parameter</value></data>
+  <data name="Search_Toast_InvalidPages" xml:space="preserve"><value>Check the page range — there are errors in the fields</value></data>
+  <data name="Search_Validation_PagePositive" xml:space="preserve"><value>Value must be greater than 0</value></data>
+  <data name="Search_Validation_PageToLessThanFrom" xml:space="preserve"><value>&quot;To&quot; cannot be less than &quot;From&quot;</value></data>
+  <data name="Note_BackTooltip" xml:space="preserve"><value>Back</value></data>
+  <data name="Note_PageTitle" xml:space="preserve"><value>Book notes</value></data>
+  <data name="Note_AddComingSoonTitle" xml:space="preserve"><value>Add note</value></data>
+  <data name="Note_AddComingSoonBody" xml:space="preserve"><value>This feature will be available later.</value></data>
+  <data name="Note_MyNotes" xml:space="preserve"><value>My notes</value></data>
+  <data name="Note_AddNote" xml:space="preserve"><value>Add note</value></data>
+  <data name="Note_TapHint" xml:space="preserve"><value>Tap a note to jump to that place in the book</value></data>
+  <data name="Note_CommentHint" xml:space="preserve"><value>Comment: jot thoughts, tricky phrases, or questions here.</value></data>
+  <data name="Note_SampleTitle" xml:space="preserve"><value>New vocabulary about war</value></data>
+  <data name="Note_SamplePage" xml:space="preserve"><value>p. 45</value></data>
+  <data name="TextSettings_Align_Center" xml:space="preserve"><value>Center</value></data>
+  <data name="TextSettings_Align_End" xml:space="preserve"><value>Align right</value></data>
+  <data name="TextSettings_Align_Justify" xml:space="preserve"><value>Justified</value></data>
+  <data name="TextSettings_Align_Start" xml:space="preserve"><value>Align left</value></data>
+  <data name="TextSettings_Picker_Alignment" xml:space="preserve"><value>Alignment</value></data>
+  <data name="TextSettings_Picker_Scrolling" xml:space="preserve"><value>Mode</value></data>
+  <data name="TextSettings_Scroll_Horizontal" xml:space="preserve"><value>Horizontal paging</value></data>
+  <data name="TextSettings_Scroll_Vertical" xml:space="preserve"><value>Vertical scrolling</value></data>
+  <data name="TextSettings_PageTitle" xml:space="preserve"><value>Book text settings</value></data>
+  <data name="TextSettings_FontSize" xml:space="preserve"><value>Book text size</value></data>
+  <data name="TextSettings_BgColor" xml:space="preserve"><value>Background color</value></data>
+  <data name="TextSettings_FgColor" xml:space="preserve"><value>Text color</value></data>
+  <data name="TextSettings_PickColor" xml:space="preserve"><value>Choose color…</value></data>
+  <data name="TextSettings_Margins" xml:space="preserve"><value>Margins (edge inset)</value></data>
+  <data name="TextSettings_Alignment" xml:space="preserve"><value>Text alignment</value></data>
+  <data name="TextSettings_PageTurn" xml:space="preserve"><value>Page turning</value></data>
+  <data name="TextSettings_TranslatorLang" xml:space="preserve"><value>Translation language (translator)</value></data>
+  <data name="TextSettings_ColorDialogTitle" xml:space="preserve"><value>Color</value></data>
+  <data name="Theme_Name_Light" xml:space="preserve"><value>Light</value></data>
+  <data name="Theme_Name_Dark" xml:space="preserve"><value>Dark</value></data>
+  <data name="Theme_Name_Auto" xml:space="preserve"><value>Auto</value></data>
+  <data name="Interface_Language_Setting" xml:space="preserve"><value>Interface language</value></data>
+  <data name="Interface_Language_Display_Ru" xml:space="preserve"><value>Russian</value></data>
+  <data name="Interface_Language_Display_En" xml:space="preserve"><value>English</value></data>
+  <data name="Interface_Language_Title" xml:space="preserve"><value>Interface language</value></data>
+  <data name="Interface_FontSize_Small" xml:space="preserve"><value>Small</value></data>
+  <data name="Interface_FontSize_Medium" xml:space="preserve"><value>Medium</value></data>
+  <data name="Interface_FontSize_Large" xml:space="preserve"><value>Large</value></data>
+  <data name="Interface_FontSize_Format" xml:space="preserve"><value>{0} ({1})</value></data>
+  <data name="Notification_InvalidUploadFormat" xml:space="preserve"><value>The selected file format is not supported. Supported: FB2, EPUB, EPUB.zip, FB2.zip</value></data>
+  <data name="Notification_UploadCancelled" xml:space="preserve"><value>Upload cancelled.</value></data>
+  <data name="Notification_UploadFailedGeneric" xml:space="preserve"><value>Could not upload the book. Try again.</value></data>
+  <data name="Notification_UploadFailedGenericLater" xml:space="preserve"><value>Could not upload the book. Try again later.</value></data>
+  <data name="Notification_UploadFailedWithDetail" xml:space="preserve"><value>Could not upload the book: {0}</value></data>
+  <data name="Notification_UploadSuccessTapOpen" xml:space="preserve"><value>Book uploaded successfully. Tap to open</value></data>
+  <data name="Notification_TranslationExpired" xml:space="preserve"><value>The translation is no longer available on the server: it expired or was deleted. Start translation again when you're ready to download.</value></data>
+  <data name="Notification_TranslationCompleteFormat" xml:space="preserve"><value>Book "{0}" has been translated to {1}. Tap to open</value></data>
+  <data name="Notification_Upload_ServiceUnavailable" xml:space="preserve"><value>Could not save the book. Restart the app and try again.</value></data>
+  <data name="Notification_Upload_TimeoutTwoMinutes" xml:space="preserve"><value>Upload stopped: timed out after 2 minutes. Check the file and try again.</value></data>
+  <data name="Notification_Upload_ReadBookFileFailed" xml:space="preserve"><value>Could not read the book file.</value></data>
+  <data name="Notification_Upload_UnexpectedFailure" xml:space="preserve"><value>Sorry, the upload could not be completed. Try again later.</value></data>
+  <data name="Notification_Translation_PollTimeout24Hours" xml:space="preserve"><value>Translation stopped: maximum wait time (24 h) exceeded.</value></data>
+  <data name="Notification_Translation_UserStopped" xml:space="preserve"><value>Translation cancelled.</value></data>
+  <data name="Notification_Translation_OfflineNoInternet" xml:space="preserve"><value>No internet connection. Check your network or try again later.</value></data>
+  <data name="Notification_Translation_FailedGeneric" xml:space="preserve"><value>Sorry, the book translation failed. Please try again later.</value></data>
+  <data name="A11y_Notification_Close" xml:space="preserve"><value>Close notification</value></data>
+  <data name="TranslationApi_Error_Generic" xml:space="preserve"><value>Translation service error.</value></data>
+  <data name="TranslationApi_Error_InvalidRequestEmptyText" xml:space="preserve"><value>No text to translate.</value></data>
+  <data name="TranslationApi_Error_InvalidRequestMultipartExpected" xml:space="preserve"><value>The request must be multipart/form-data.</value></data>
+  <data name="TranslationApi_Error_InvalidRequestNoFile" xml:space="preserve"><value>No book file was uploaded.</value></data>
+  <data name="TranslationApi_Error_InvalidLanguageMissing" xml:space="preserve"><value>Source or target language is missing.</value></data>
+  <data name="TranslationApi_Error_UpstreamError" xml:space="preserve"><value>The translation service rejected the request. Try again later.</value></data>
+  <data name="TranslationApi_Error_InternalError" xml:space="preserve"><value>Internal translation service error. Try again later.</value></data>
+  <data name="TranslationApi_Error_InternalErrorEmptyTranslation" xml:space="preserve"><value>Empty response from the translator. Try again later.</value></data>
+  <data name="TranslationApi_Error_JobNotFound" xml:space="preserve"><value>Translation job was not found.</value></data>
+  <data name="TranslationApi_Error_ResultExpired" xml:space="preserve"><value>The translation result has expired. Start the book translation again.</value></data>
+  <data name="TranslationApi_Start_Rejected" xml:space="preserve"><value>The translation server rejected the request. Check the book file and try again later.</value></data>
+  <data name="TranslationApi_Start_FailedGeneric" xml:space="preserve"><value>Could not start book translation. Try again later.</value></data>
+  <data name="TranslationApi_Start_ResponseIncomplete" xml:space="preserve"><value>The server response is missing data needed to continue.</value></data>
+  <data name="Translation_Msg_OfflineUnavailable" xml:space="preserve"><value>Translation unavailable: required book version not on device or no Internet connection.</value></data>
+  <data name="Translation_Msg_ProxyUnreachable" xml:space="preserve"><value>Could not reach the translation service. Check your connection and try again later.</value></data>
+  <data name="Translation_Msg_OnlineFailure" xml:space="preserve"><value>Could not translate the sentence. Try again later.</value></data>
+  <data name="Translation_Msg_CancelledOrTimeout" xml:space="preserve"><value>Sentence translation was cancelled.</value></data>
+  <data name="Translation_Msg_ServerNotConfigured" xml:space="preserve"><value>TranslationProxy URL is not set. Set TranslationServerConfig.DefaultApiBaseUrl.</value></data>
+  <data name="Main_SearchNoBooksFound" xml:space="preserve"><value>Search applied. No books matched your filters.</value></data>
+  <data name="Main_SearchApplied" xml:space="preserve"><value>Search applied</value></data>
+  <data name="Main_SearchResetDone" xml:space="preserve"><value>Search reset</value></data>
+  <data name="Main_BookNotFoundMaybeRemoved" xml:space="preserve"><value>This book was not found (the edition may have been removed).</value></data>
+  <data name="Main_LibraryEmptyHint" xml:space="preserve"><value>The library is empty. Upload a book — after reading you can resume from the last position.</value></data>
+  <data name="Main_NoSavedReadingHint" xml:space="preserve"><value>No saved reading progress yet. Open any book and read — position saves automatically.</value></data>
+  <data name="Main_FileMissingForSavedPosition" xml:space="preserve"><value>Could not find the book file for the saved position.</value></data>
+  <data name="Main_DeleteBlockedTranslationRunning" xml:space="preserve"><value>Can't delete: translation is running for this book. Try again after it finishes.</value></data>
+  <data name="Main_DeleteFailed" xml:space="preserve"><value>Could not delete the book. Try again.</value></data>
+  <data name="Main_CardDeletedSuccess" xml:space="preserve"><value>Book edition removed.</value></data>
+  <data name="Card_ContextMenuTitle" xml:space="preserve"><value>Book actions</value></data>
+  <data name="Card_Action_Delete" xml:space="preserve"><value>Delete</value></data>
+  <data name="Card_Action_Translate" xml:space="preserve"><value>Translate</value></data>
+  <data name="Card_Action_ReadMark" xml:space="preserve"><value>Mark read</value></data>
+  <data name="Card_Action_ReadUnmark" xml:space="preserve"><value>Remove read mark</value></data>
+  <data name="Card_Action_FavMark" xml:space="preserve"><value>Add to favorites</value></data>
+  <data name="Card_Action_FavUnmark" xml:space="preserve"><value>Remove from favorites</value></data>
+  <data name="Card_DeleteConfirmTitle" xml:space="preserve"><value>Remove book</value></data>
+  <data name="Card_DeleteConfirmMessage" xml:space="preserve"><value>Remove this edition from the library? Its file and data for this edition will be deleted.</value></data>
+  <data name="Card_DeleteConfirmYes" xml:space="preserve"><value>Delete</value></data>
+  <data name="Book_NoTitle" xml:space="preserve"><value>Untitled</value></data>
+  <data name="Book_UnknownAuthor" xml:space="preserve"><value>Unknown</value></data>
+  <data name="Reading_Error_LoadBookText" xml:space="preserve"><value>Could not load the book text.</value></data>
+  <data name="Reading_Error_OpenBookDetail" xml:space="preserve"><value>Could not open the book. Check the file or try again.</value></data>
+  <data name="Reading_EndOfBook" xml:space="preserve"><value>End of book.</value></data>
+  <data name="Reading_Fallback_Fb2ZipMissing" xml:space="preserve"><value>No FB2 file was found inside the zip archive.</value></data>
+  <data name="Reading_Fallback_UnsupportedFormat" xml:space="preserve"><value>This file format is not supported for reading.</value></data>
+  <data name="Reading_Fallback_LoadTextFailed" xml:space="preserve"><value>Error loading book text.</value></data>
+  <data name="Reading_GotoPage_ErrorBelowMinFormat" xml:space="preserve"><value>Error: page number cannot be less than 1. Valid pages are 1 through {0}.</value></data>
+  <data name="Reading_GotoPage_ErrorNoSuchPageFormat" xml:space="preserve"><value>Error: there is no page «{0}». This book has pages 1 through {1}.</value></data>
+  <data name="Reading_TocFallbackBodyTitle" xml:space="preserve"><value>Text</value></data>
+  <data name="Reading_Error_ReadEpub" xml:space="preserve"><value>Error reading the EPUB file.</value></data>
+  <data name="Upload_Error_CopyFile" xml:space="preserve"><value>Could not copy the file.</value></data>
+  <data name="Upload_Error_TranslationFileNotFound" xml:space="preserve"><value>Translation file not found.</value></data>
+  <data name="Upload_Error_TargetBookNotFound" xml:space="preserve"><value>Book not found.</value></data>
+  <data name="Upload_Error_SaveFile" xml:space="preserve"><value>Could not save the file.</value></data>
+  <data name="Fb2_Error_XmlParseFailed" xml:space="preserve"><value>Could not parse the FB2 after repair attempts.</value></data>
+  <data name="Fb2_Error_NoBookText" xml:space="preserve"><value>Could not find book text</value></data>
+</root>
